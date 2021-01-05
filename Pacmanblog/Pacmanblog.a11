@@ -1,0 +1,168 @@
+
+EVENT MAINLOOP2
+
+IF SCREEN = 1        ; si estamos en la pantalla START
+    IF F = 1            ; y en modo "enmarcado"
+	INK 2                ; pinta estos mensajes
+	PAPER 0
+	AT 3 9 MESSAGE 1
+	INK 3
+	PAPER 0
+	AT 6 9 MESSAGE 2
+	INK 5
+	PAPER 0
+	AT 9 9 MESSAGE 3
+	INK 6
+	PAPER 0
+	AT 12 9 MESSAGE 4
+	INK 7
+	PAPER 0
+	AT 14 4 MESSAGE 5
+	PUT 8 136 0           ; pinta a Kokoro
+	LET F = 2             ; y pasa a modo "Insert coin".
+    ENDIF
+ENDIF
+
+IF SCREEN = 0	    ; si estamos en el LABERINTO
+    IF F = 1            ; y en modo "enmarcado Jugando"
+		PUT  16 16 0        ; pinta objetos
+		PUT  224 16 1
+		PUT  16 144 2
+		PUT  224 144 3
+		AT 22 16            ; pinta marcador
+		DISPLAY LIVES
+		AT 9 13
+		MESSAGE 6	    ; GET READY!
+		IF P = 1            ; si comenzamos en el primer laberinto
+			SOUND 1			; Tema musical Pac-man
+			SOUND 0             ; Música sólo una vez
+			;DELAY 200          ; Espera a la música
+			SOUND 36			; monitor
+			WHILE A = 1			; repite mientras suena el tema Pac-man
+				SOUND 96			; reproduce siguiente nota
+				SOUND 36			; monitor
+			ENDWHILE
+		ELSE
+			DELAY 25            ; Espera a GET READY!
+		ENDIF
+		REDRAW              ; Redibuja
+		LET F = 0           ; pasa a modo "Jugando"
+		EXIT                ; salir
+    ELSE
+        IF F = 3        ; par el modo "enmarcado Insert coin"
+            PUT  16 16 0    ; coloca objetos
+            PUT  224 16 1
+            PUT  16 144 2
+            PUT  224 144 3
+            LET F = 2       ; pasa a modo "Insert coin"
+            EXIT
+        ENDIF
+    ENDIF
+ENDIF
+
+IF SCREEN = 2    ; si estamos en la pantalla BONUS
+    IF F = 1        ; y estamos en modo "enmarcado"
+		PUT 96 28 9    ; coloca las cuatro "bolas de poder"
+		PUT 96 44 8
+		PUT 96 68 10
+		PUT 96 92 11
+		AT 4 15        ; pinta marcador de "puntos de luz"
+		PRINT "5x"
+		AT 4 18
+		DISPLAY N 
+		IF N > 0
+			REPEAT N       ; por cada "punto" comido
+				BONUS 5       ; añade 5 bonus
+				AT 17 15      ; y pinta bonus.
+				SHOWBONUS
+			ENDREPEAT
+		ENDIF
+            ;BEEP 18     ; reproducir FX "score"
+            SOUND 108
+            DELAY 2
+		AT 6 15        ; pinta marcador de "bolas de poder"
+		PRINT "50x"
+		AT 6 19
+		DISPLAY D
+		IF D > 0
+			REPEAT D
+				BONUS 50       ; añade 50 bonus por cada "bola"
+				AT 17 15
+				SHOWBONUS
+			ENDREPEAT
+		ENDIF
+            ;BEEP 18     ; reproducir FX "score"
+            SOUND 108
+            DELAY 2
+		AT 9 15        ; pinta marcador "fantasmas"
+		DISPLAY G
+		AT 12 15       ; pinta marcador "frutas"
+		DISPLAY H
+		AT 14 5        ; pinta marcador "packs bonus"
+		PRINT "200 BONUS x"
+		AT 14 17
+		DISPLAY J
+		AT 17 9        ; pinta marcador "Total"
+		PRINT "TOTAL"
+		IF J > 0
+			REPEAT J
+				BONUS 200  ; añade 200 bonus por cada "pack bonus"
+				AT 17 15
+				SHOWBONUS  ; pinta bonus
+					;BEEP 18     ; y reproducir FX "score"
+					SOUND 108
+					DELAY 2
+			ENDREPEAT
+		ENDIF
+		ZEROBONUS      ; restaura registro bonus
+		AT 22 2
+		SHOWSCORE
+		LET F = 2      ; pasar a modo INSERT COIN
+    ELSE            ; pero si estamos en modo "INSERT COIN"
+		IF S = 6       ; y si agotamos 6 segundos
+			IF LIVES = 0   ; y si agotamos las 3 vidas entonces
+				ENDGAME        ; salir a HIGH SCORE (S = 6, LIVES = 0)
+			ELSE           ; pero si aún tenemos vidas               
+				IF C > 3       ; y si acumulas 3 Laberintos completados.
+					LET C = 1     ; restaura C
+					SPAWN 0 1     ; instancia PLAYER (lo habíamos borrado).
+					SPAWNED          ; accede a sus propiedades.
+						LET X = 112      ; nueva posición en INTERMISSION
+						LET Y = 136
+						LET IMAGE = 0    ; mirando a izquierda
+						LET DIRECTION = LEFT
+					ENDSPRITE
+					LET SCREEN = 3   ; saltar a INTERMISION (S = 6, C > 3)
+					EXIT             ; salir del script
+				ELSE          ; en caso contrario (C <= 3)	
+					LET F = 0        ; pasar a modo "Jugando"
+					SPAWN 0 1        ; Instancia PLAYER (estaba borrado).
+					SPAWNED          ; accede a sus propiedades
+						LET X = 112      ; nueva posición GET READY
+						LET Y = 96
+						LET IMAGE = 1
+						LET DIRECTION = RIGHT
+					ENDSPRITE
+					LET SCREEN = 0       ; saltar a LABERINTO (S = 6, LIVES > 0)
+					EXIT
+				ENDIF
+			ENDIF
+        ENDIF
+    ENDIF
+ENDIF
+
+IF SCREEN = 3        ; si estamos en INTERMISSION
+    IF F = 1            ; y en modo "enmarcado" entonces
+		INK 7                ; tinta White
+		PAPER 0              ; papel Black
+		PUT 8 136 0          ; coloca a "Kokoro"	
+		AT 10 12 MESSAGE 7   ; pinta el nivel
+		AT 10 18 DISPLAY P
+		SILENCE             ; apagar Player
+		SOUND 2             ; reproduce música "Intermission"
+		;SOUND 0             ; sonar solo una vez
+		LET F = 2            ; establece ya el modo "Insert coin"
+    ENDIF
+ENDIF
+
+

@@ -1,0 +1,294 @@
+
+EVENT SPRITETYPE4
+
+; FANTASMAS
+
+SPRITEINK SETTINGA        ; Soy mi color
+
+IF M >= 200	        ; si PACMAN TIENE EL PODER
+    IF D > SETTINGB	    ; bola nueva
+	LET TYPE = 3	    ; transforma a TIPO "ASUSTADO"
+	LET IMAGE = 5
+	LET FRAME = 0
+    ENDIF
+    IF SCREEN > 0       ; y si estamos en "START" o en "INTERMISSION"
+		LET DIRECTION = RIGHT    ; los fantasmas giran a la derecha.
+    ENDIF
+ENDIF
+
+; define el objetivo.
+IF SETTINGA = 2    ; BLINKY
+    LET T = X            ; Revelo X para Inky
+    LET U = Y            ; Revelo y para Inky
+
+    IF M < 100            ; modo despliegue
+	LET Q = 160	    ; segundo cuadrante.
+	LET R = 16
+    ELSE                  ; modo perseguir
+	LET Q = V	    ; TARJET
+	LET R = W
+    ENDIF
+ENDIF
+
+IF SETTINGA = 3    ; PINKY
+    IF M < 100            ; modo despliegue
+	LET Q = 16            ; primer cuadrante
+	LET R = 16
+    ELSE                  ; modo perseguir
+        LET Q = V            ; X TRAJET
+        LET R = W            ; Y TRAJET
+
+        IF I = RIGHT        ; si Pac-man mira a la derecha
+	    ADD 32 TO Q        ; apunta 4 celdas por delante
+        ELSE
+	    IF I = LEFT        ; lo mismo para izquierda
+                SUBTRACT 32 TO Q
+	    ELSE
+	        IF I = UP
+		    SUBTRACT 32 TO R
+	        ELSE
+		    ADD 32 TO R
+	        ENDIF
+	    ENDIF
+        ENDIF
+    ENDIF
+ENDIF
+
+IF SETTINGA = 5    ; INKY
+    IF M < 100            ; modo dispersión
+	LET Q = 160            ; cuarto cuadrante
+	LET R = 120
+    ELSE        	; modo persecución
+	LET Q = V	    ; X TRAJET
+	LET R = W	    ; Y TRAJET
+
+	IF I = RIGHT
+	    ADD 16 TO Q
+	ELSE
+	    IF I = LEFT
+		SUBTRACT 16 TO Q
+            ELSE
+		IF I = UP
+		    SUBTRACT 16 TO R
+		ELSE
+	            ADD 16 TO R
+		ENDIF
+            ENDIF	
+	ENDIF
+
+	MULTIPLY Q BY 2		; INTERPOLAR CON BLINKY
+	SUBTRACT T TO Q
+	MULTIPLY R BY 2
+	SUBTRACT U TO R
+    ENDIF
+ENDIF
+
+IF SETTINGA = 6    ; Clyde
+    IF M < 100            ; despliegue
+	LET Q = 56          ; tercer cuadrante
+	LET R = 120
+    ELSE	          ; persigue
+        LET Q = X
+        IF X < V            ; asegurar numero positivo. (absoluto).
+	    SUBTRACT X TO V
+	    LET Q = V       ; Q = DISTANCIA horizontal con PAC-MAN       
+	    ADD X TO V	; restaura V
+        ELSE
+	    SUBTRACT V TO Q ; Q = DISTANCIA horizontal con PAC-MAN
+        ENDIF
+
+        LET R = Y
+        IF Y < W            ; asegurar numero positivo. (absoluto).
+            SUBTRACT Y TO W
+	    LET R = W       ; Q = DISTANCIA horizontal con PAC-MAN 
+	    ADD Y TO W      ; restaura W
+        ELSE
+	    SUBTRACT W TO R ; R = DISTANCIA vertical con PAC-MAN
+        ENDIF
+
+        IF Q < 64    ; si Pac-man está a menos de 4 celdas entonces
+	    IF R < 64
+	        LET Q = 56	; despliegue tercer cuadrante
+	        LET R = 120
+	    ENDIF
+        ELSE       ; si no, entonces persigue.
+            LET Q = V
+            LET R = W
+        ENDIF
+    ENDIF
+ENDIF
+
+; muerte de Pac-man
+IF K = 1            ; Pac-man está muriendo
+    IF SETTINGA = 2
+	LET X = 96
+	LET Y = 48        ; posición inicial de Blinky
+    ENDIF
+    IF SETTINGA = 3
+	LET X = 104
+	LET Y = 72        ; posición inicial de Pinky
+    ENDIF
+    IF SETTINGA = 5
+	LET X = 120
+	LET Y = 72        ; posición inicial de Inky
+    ENDIF
+    IF SETTINGA = 6
+	LET X = 136
+	LET Y = 72        ; posición inicial de Clyde
+    ENDIF
+ENDIF
+
+IF X = 120								; A las puertas
+	IF Y = 72
+		GETRANDOM 4
+		IF RND = 1
+			LET DIRECTION = UP		; pa FUERA!
+			SPRITEUP
+			EXIT
+		ENDIF
+	ENDIF
+ENDIF
+
+; velocidades
+IF SETTINGA = 2
+    ; Blinky es el más rápido
+    IF L = 1
+        ; VELOCIDAD 5+ 111110
+        IF Z = 5
+            EXIT
+        ENDIF
+    ENDIF
+ELSE
+    ; PINKY, INKY Y CLYDE
+    IF L = 1
+        ; VELOCIDAD 4+ 110110
+        IF Z = 2
+	    EXIT
+        ENDIF
+        IF Z = 5
+    	    EXIT
+        ENDIF
+    ENDIF
+    IF L >= 2
+        ; VELOCIDAD 5+ 111110
+        IF Z = 5
+            EXIT
+        ENDIF
+    ENDIF
+ENDIF
+
+; movimiento
+
+IF DIRECTION = UP
+    ; gira a favor del reloj
+    IF CANGOUP
+        SPRITEUP
+    ELSE
+        LET DIRECTION = RIGHT
+    ENDIF
+
+    ; PERSIGUE EN UNA BIFURCACION	
+    IF X > Q
+        IF CANGOLEFT
+            LET DIRECTION = LEFT
+            ANIMATE
+        ENDIF
+    ELSE
+        IF CANGORIGHT
+            LET DIRECTION = RIGHT
+            ANIMATE
+        ENDIF
+    ENDIF
+ENDIF
+
+IF DIRECTION = DOWN
+    ; gira en contra del reloj
+    IF CANGODOWN
+       	SPRITEDOWN
+    ELSE
+        LET DIRECTION = LEFT
+    ENDIF
+
+    ; PERSIGUE EN UNA BIFURCACION	
+    IF X > Q
+        IF CANGOLEFT
+            LET DIRECTION = LEFT
+            ANIMATE
+        ENDIF
+    ELSE
+        IF CANGORIGHT
+            LET DIRECTION = RIGHT
+            ANIMATE
+        ENDIF
+    ENDIF
+ENDIF
+
+IF DIRECTION = LEFT
+    ; gira a favor del reloj
+    IF X <= LEFTEDGE
+        LET X = RIGHTEDGE
+        EXIT
+    ELSE
+    	IF CANGOLEFT            
+            SPRITELEFT
+        ELSE
+            LET DIRECTION = UP
+        ENDIF
+    ENDIF
+
+    ; PERSIGUE
+    IF Y > R
+        IF CANGOUP
+            LET DIRECTION = UP
+            ANIMATE
+        ENDIF
+    ELSE
+        IF CANGODOWN
+            LET DIRECTION = DOWN
+            ANIMATE
+        ENDIF
+    ENDIF
+ENDIF
+
+IF DIRECTION = RIGHT
+    ; gira a favor del reloj
+    IF X >= RIGHTEDGE
+        LET X = LEFTEDGE
+        EXIT
+    ELSE
+        IF CANGORIGHT
+            SPRITERIGHT
+        ELSE
+            LET DIRECTION = DOWN
+        ENDIF
+    ENDIF
+
+    ; PERSIGUE
+    IF Y > R
+        IF CANGOUP
+            LET DIRECTION = UP
+            ANIMATE
+        ENDIF
+    ELSE
+        IF CANGODOWN
+            LET DIRECTION = DOWN
+            ANIMATE
+        ENDIF
+    ENDIF
+ENDIF
+
+IF COLLISION PLAYER
+    IF K = 5
+        OTHER
+			IF F = 0                ; solo en modo "Jugando" entonces
+				SUBTRACT 1 TO LIVES    ; resta una vida		
+				;SOUND 105             ; sonido "Death 128k"
+			ENDIF
+			AT 22 16
+			DISPLAY LIVES
+			LET K = 0			
+			LET TYPE = 2            ; transforma en "LA MUERTE DE PACMAN"
+		ENDSPRITE
+    ENDIF
+ENDIF
+

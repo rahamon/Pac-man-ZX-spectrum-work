@@ -1,0 +1,110 @@
+
+EVENT SPRITETYPE3
+
+; MODO MIEDO ASUSTADO
+
+SPRITEINK 1    ; COLOREAMOS
+
+IF M < 100                ; Pac-man pierde el poder
+    IF SETTINGB < 16	    ; PARPADEO
+	GETRANDOM 8
+	LET A = RND
+	SPRITEINK A
+	ADD 1 TO SETTINGB
+    ELSE
+	LET TYPE = 4	    ; CAMBIA A MODO PERSEGUIR
+	LET IMAGE = 4
+	LET FRAME = 0
+	LET SETTINGB = 0    ; RESET PARPADEO
+    ENDIF
+ENDIF
+
+
+IF K = 1            ; Pac-man está muriendo
+    IF SETTINGA = 2
+	LET X = 96
+	LET Y = 48        ; posición inicial de Blinky
+    ENDIF
+    IF SETTINGA = 3
+	LET X = 104
+	LET Y = 72        ; posición inicial de Pinky
+    ENDIF
+    IF SETTINGA = 5
+	LET X = 120
+	LET Y = 72        ; posición inicial de Inky
+    ENDIF
+    IF SETTINGA = 6
+	LET X = 136
+	LET Y = 72        ; posición inicial de Clyde
+    ENDIF
+ENDIF
+
+; velocidades
+IF L = 1
+    ; VELOCIDAD 3+ 010101
+    IF Z = 0
+        EXIT
+    ENDIF
+    IF Z = 2
+        EXIT
+    ENDIF
+    IF Z = 4
+        EXIT
+    ENDIF
+ENDIF
+IF L >= 2
+    ; VELOCIDAD 4+ 110110
+    IF Z = 2
+	EXIT
+    ENDIF
+    IF Z = 5
+    	EXIT
+    ENDIF
+ENDIF
+
+; movimiento
+
+GETRANDOM 4    ; GENERAR NUMERO PSEUDOALEATORIO 4=(0,1,2,3)(SEED)
+LET A = RND    ; A = DIRECCIONES (0,1,2,3)
+
+IF DIRECTION = UP
+    IF CANGOUP
+        SPRITEUP
+    ELSE                    ; CUANDO SE ENCUENTRA UN OBSTÁCULO
+	LET DIRECTION = A    ; GENERAR DIRECTION = RND Y VAGAR
+    ENDIF
+ENDIF
+
+IF DIRECTION = DOWN
+    IF CANGODOWN
+       	SPRITEDOWN
+    ELSE
+	LET DIRECTION = A    ; VAGAR
+    ENDIF
+ENDIF
+
+IF DIRECTION = LEFT
+    IF X <= LEFTEDGE
+        LET X = RIGHTEDGE    ; TUNEL
+	EXIT
+    ELSE
+    	IF CANGOLEFT
+       	    SPRITELEFT
+	ELSE
+	    LET DIRECTION = A	; VAGAR
+	ENDIF
+    ENDIF
+ENDIF
+
+IF DIRECTION = RIGHT
+    IF X >= RIGHTEDGE
+	LET X = LEFTEDGE        ; TUNEL
+	EXIT
+    ELSE
+	IF CANGORIGHT
+	    SPRITERIGHT
+	ELSE
+	    LET DIRECTION = A	; VAGAR
+	ENDIF
+    ENDIF
+ENDIF

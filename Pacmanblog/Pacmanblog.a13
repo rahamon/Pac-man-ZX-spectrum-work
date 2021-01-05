@@ -1,0 +1,36 @@
+
+EVENT GAMEINIT
+
+; VARIABLES GLOBALES
+
+LET LIVES = 3
+LET N = 0    ; contador PILDORAS
+LET D = 0    ; contador PILDORAS DE PODER
+LET M = 0    ; Modo/cronómetro. "DISPERSION o DESPLIEGUE", "PERSECUCION", "ASUSTADO".
+LET Z = 0		; Ritmo
+LET P = 1		; PANTALLAS
+LET L = 1		; niveles de dificultad
+LET C = 1		; CONTADOR INTERMISIÓN
+LET H = 0        ; contador FRUTAS
+
+LET B = 0        ; cronómetro marcador de BONUS en pantalla
+LET J = 0        ; contador PACKS 200 BONUS 
+LET G = 0        ; contador fantasmas 
+
+LET K = 5    ; PACMAN DEATH 0,1,2,3,4 = MURIENDO, 5 = READY.
+LET Q = 0    ; TARJET X
+LET R = 0    ; TARJET Y
+LET T = 0    ; coordenada X de BLINKY
+LET U = 0    ; coordenada Y de BLINKY
+LET V = 0    ; coordenada X de PACMAN
+LET W = 0    ; coordenada Y de PACMAN
+LET I = 0    ; DIRECCION de PACMAN
+; MARCADORES
+
+AT 22 16
+DISPLAY LIVES
+AT 22 14
+AT 22 2
+SHOWSCORE
+AT 22 24
+SHOWHIGH

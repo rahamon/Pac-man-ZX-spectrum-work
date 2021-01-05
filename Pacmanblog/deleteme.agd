@@ -1,0 +1,1807 @@
+
+DEFINEWINDOW    1 1 20 30
+
+DEFINECONTROLS  'W' 'S' 'A' 'D' 32 'P' 'R' '1' '2' '3' '4'
+
+DEFINEBLOCK     EMPTYBLOCK
+                0 0 0 0 0 0 0 0 6
+
+DEFINEBLOCK     WALLBLOCK
+                127 128 175 144 160 159 128 127 67
+
+DEFINEBLOCK     WALLBLOCK
+                255 0 255 0 0 255 0 255 67
+
+DEFINEBLOCK     WALLBLOCK
+                254 1 249 5 5 249 1 254 67
+
+DEFINEBLOCK     WALLBLOCK
+                252 2 249 5 21 197 37 37 67
+
+DEFINEBLOCK     WALLBLOCK
+                63 64 159 160 168 163 164 164 67
+
+DEFINEBLOCK     WALLBLOCK
+                164 164 163 168 160 159 64 63 67
+
+DEFINEBLOCK     WALLBLOCK
+                37 37 197 21 5 249 2 252 67
+
+DEFINEBLOCK     WALLBLOCK
+                165 165 165 165 165 165 165 165 67
+
+DEFINEBLOCK     COLLECTABLE
+                96 240 240 96 0 0 0 0 7
+
+DEFINEBLOCK     CUSTOMBLOCK
+                48 88 188 252 120 48 0 0 71
+
+DEFINEBLOCK     WALLBLOCK
+                126 129 153 181 165 165 165 165 67
+
+DEFINEBLOCK     WALLBLOCK
+                165 165 165 165 181 153 129 126 67
+
+DEFINEBLOCK     LADDERBLOCK
+                0 0 255 0 255 0 0 0 7
+
+DEFINEBLOCK     WALLBLOCK
+                36 36 195 8 0 255 0 255 67
+
+DEFINEBLOCK     WALLBLOCK
+                255 0 255 0 16 195 36 36 67
+
+DEFINEBLOCK     WALLBLOCK
+                164 164 163 168 160 163 164 164 67
+
+DEFINEBLOCK     WALLBLOCK
+                37 37 197 21 5 197 37 37 67
+
+DEFINEBLOCK     WALLBLOCK
+                0 0 0 0 0 0 0 0 6
+
+DEFINEBLOCK     EMPTYBLOCK
+                0 56 124 240 192 240 124 56 6
+
+
+DEFINESPRITE    3
+                7 224 31 248 63 252 127 254 127 254 255 240 255 192 255 0
+                255 128 255 224 255 248 127 254 127 254 63 252 31 248 7 224
+                7 224 31 248 63 252 127 254 127 254 255 255 255 255 255 255
+                255 255 255 255 255 255 127 254 127 254 63 252 31 248 7 224
+                7 224 31 248 63 248 127 240 127 224 255 192 255 128 255 0
+                255 128 255 192 255 224 127 240 127 248 63 252 31 248 7 224
+
+DEFINESPRITE    3
+                7 224 31 248 63 252 127 254 127 254 15 255 3 255 0 255
+                1 255 7 255 31 255 127 254 127 254 63 252 31 248 7 224
+                7 224 31 248 63 252 127 254 127 254 255 255 255 255 255 255
+                255 255 255 255 255 255 127 254 127 254 63 252 31 248 7 224
+                7 224 31 248 63 252 31 254 15 254 7 255 3 255 1 255
+                1 255 3 255 7 255 15 254 31 254 63 252 31 248 7 224
+
+DEFINESPRITE    3
+                0 0 0 0 0 0 64 2 96 14 240 31 252 63 254 127
+                255 255 255 255 255 255 127 254 127 254 63 252 31 248 7 224
+                0 0 24 24 56 28 124 62 124 62 252 63 254 127 254 127
+                255 255 255 255 255 255 127 254 127 254 63 252 31 248 7 224
+                7 224 31 248 63 252 127 254 127 254 255 255 255 255 255 255
+                255 255 255 255 255 255 127 254 127 254 63 252 31 248 7 224
+
+DEFINESPRITE    3
+                7 224 31 248 63 252 127 254 127 254 255 255 255 255 255 255
+                254 127 252 63 240 31 96 14 64 2 0 0 0 0 0 0
+                7 224 31 248 63 252 127 254 127 254 255 255 255 255 255 255
+                255 255 255 255 255 255 127 254 127 254 63 252 31 248 7 224
+                7 224 31 248 63 252 127 254 127 254 255 255 255 255 255 255
+                254 127 254 127 252 63 124 62 124 62 56 28 24 24 0 0
+
+DEFINESPRITE    4
+                7 224 31 248 63 252 55 236 99 198 121 230 121 230 243 207
+                255 255 231 231 248 31 255 255 213 85 136 137 0 0 0 0
+                7 224 31 248 63 252 55 236 99 198 109 182 109 182 243 207
+                255 255 231 231 248 31 255 255 213 85 136 137 0 0 0 0
+                7 224 31 248 63 252 55 236 99 198 103 158 103 158 243 207
+                255 255 231 231 248 31 255 255 213 85 136 137 0 0 0 0
+                7 224 31 248 63 252 55 236 99 198 109 182 109 182 243 207
+                255 255 231 231 248 31 255 255 213 85 136 137 0 0 0 0
+
+DEFINESPRITE    2
+                7 224 31 248 63 252 61 188 113 142 105 166 101 150 243 207
+                255 255 254 127 254 127 255 255 213 85 136 137 0 0 0 0
+                7 224 31 248 63 252 61 188 113 142 109 182 109 182 243 207
+                255 255 252 63 251 223 255 255 213 85 136 137 0 0 0 0
+
+DEFINESPRITE    4
+                0 0 0 0 0 48 12 120 18 204 18 204 18 204 12 120
+                0 48 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+                0 0 0 0 0 48 12 120 24 228 24 228 24 228 12 120
+                0 48 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+                0 0 0 0 12 0 30 48 51 72 51 72 51 72 30 48
+                12 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+                0 0 0 0 0 48 12 120 6 156 6 156 6 156 12 120
+                0 48 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+DEFINESPRITE    5
+                0 0 0 0 0 0 64 2 96 14 240 31 252 63 254 127
+                255 255 255 255 255 255 127 254 127 254 63 252 31 248 7 224
+                0 0 0 0 0 0 0 0 0 0 0 0 0 0 240 15
+                255 255 255 255 255 255 127 254 127 254 63 252 31 248 7 224
+                0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+                1 128 7 224 31 248 127 254 127 254 63 252 31 248 7 224
+                0 0 0 0 0 0 0 0 4 32 4 32 0 0 48 12
+                1 128 1 128 1 128 3 192 3 192 7 224 7 224 7 224
+                0 0 0 0 8 16 8 16 0 0 0 0 0 0 192 3
+                0 0 0 0 0 0 2 64 2 64 0 0 0 0 0 0
+
+DEFINESPRITE    1
+                0 0 0 62 0 246 1 32 2 32 28 64 62 32 95 56
+                127 92 123 58 119 126 62 110 28 214 0 108 0 56 0 0
+
+DEFINESPRITE    1
+                0 0 24 224 38 238 89 210 60 164 39 28 111 206 126 218
+                82 122 55 244 61 36 25 104 15 208 6 160 3 192 0 0
+
+DEFINESPRITE    1
+                0 0 1 224 3 224 5 128 29 56 63 124 63 252 127 254
+                95 254 127 234 127 242 63 244 63 68 31 152 7 224 0 0
+
+DEFINESPRITE    1
+                0 0 12 192 30 224 25 48 4 192 15 224 31 240 23 208
+                63 232 47 232 63 248 31 208 31 176 11 224 4 64 3 128
+
+DEFINESPRITE    1
+                0 0 9 192 15 224 3 160 29 24 61 124 47 252 127 254
+                95 246 127 234 127 242 63 164 63 204 30 88 12 48 0 0
+
+DEFINESPRITE    1
+                0 0 7 224 12 48 12 48 7 224 3 192 1 128 1 128
+                1 64 1 96 1 64 1 64 1 96 1 192 0 128 0 0
+
+DEFINESPRITE    1
+                255 255 255 255 255 255 255 255 127 255 127 255 127 255 63 255
+                63 255 31 255 31 255 15 255 7 255 1 255 0 127 0 15
+
+DEFINESPRITE    1
+                0 15 0 127 1 255 7 255 15 255 31 255 31 255 63 255
+                63 255 127 255 127 255 127 255 255 255 255 255 255 255 255 255
+
+DEFINESPRITE    3
+                240 0 254 0 255 128 255 224 255 240 255 248 255 248 255 252
+                255 252 255 254 255 254 255 254 255 255 255 255 255 255 255 255
+                240 0 254 0 255 128 255 224 255 240 255 248 255 248 255 240
+                255 192 255 128 254 0 252 0 240 0 224 0 128 0 0 0
+                240 0 254 0 255 128 255 192 255 128 255 0 254 0 252 0
+                252 0 248 0 240 0 224 0 224 0 192 0 128 0 0 0
+
+DEFINESPRITE    3
+                255 255 255 255 255 255 255 255 255 254 255 254 255 254 255 252
+                255 252 255 248 255 248 255 240 255 224 255 128 254 0 240 0
+                0 0 128 0 224 0 240 0 252 0 254 0 255 128 255 192
+                255 240 255 248 255 248 255 240 255 224 255 128 254 0 240 0
+                0 0 128 0 192 0 224 0 224 0 240 0 248 0 252 0
+                252 0 254 0 255 0 255 128 255 192 255 128 254 0 240 0
+
+DEFINESPRITE    1
+                0 0 120 30 64 2 64 2 64 2 0 0 0 0 0 0
+                0 0 0 0 0 0 64 2 64 2 64 2 120 30 0 0
+
+
+DEFINEOBJECT    2 0 16 16
+                0 0 0 0 0 0 0 0 0 0 1 192 2 224 5 240
+                7 240 7 240 3 224 1 192 0 0 0 0 0 0 0 0
+
+DEFINEOBJECT    3 0 16 224
+                0 0 0 0 0 0 0 0 0 0 0 224 1 112 2 248
+                3 248 3 248 1 240 0 224 0 0 0 0 0 0 0 0
+
+DEFINEOBJECT    5 0 144 16
+                0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 192
+                2 224 5 240 7 240 7 240 3 224 1 192 0 0 0 0
+
+DEFINEOBJECT    71 0 144 224
+                0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 224
+                1 112 2 248 3 248 3 248 1 240 0 224 0 0 0 0
+
+DEFINEOBJECT    71 255 8 8
+                0 0 0 0 0 0 0 0 0 0 8 136 21 84 5 84
+                9 84 17 84 17 84 28 136 0 0 0 0 0 0 0 0
+
+DEFINEOBJECT    71 255 8 8
+                0 0 0 0 0 0 0 0 0 0 20 136 21 84 21 84
+                29 84 5 84 5 84 4 136 0 0 0 0 0 0 0 0
+
+DEFINEOBJECT    71 255 8 8
+                0 0 0 0 0 0 0 0 0 0 8 136 21 84 21 84
+                9 84 21 84 21 84 8 136 0 0 0 0 0 0 0 0
+
+DEFINEOBJECT    71 255 8 8
+                0 0 0 0 0 0 0 0 0 0 68 68 74 170 200 170
+                76 170 74 170 74 170 228 68 0 0 0 0 0 0 0 0
+
+DEFINEOBJECT    2 255 8 8
+                0 0 3 192 15 240 31 248 63 252 48 140 118 106 82 212
+                43 186 90 222 54 108 48 140 31 248 15 240 3 192 0 0
+
+DEFINEOBJECT    71 255 8 8
+                0 0 0 0 0 0 1 128 7 224 13 240 10 240 29 216
+                31 232 15 208 15 144 7 224 1 128 0 0 0 0 0 0
+
+DEFINEOBJECT    3 255 8 8
+                0 0 3 192 15 240 31 248 23 232 49 140 53 172 59 220
+                127 254 126 126 125 190 127 254 109 182 68 146 0 0 0 0
+
+DEFINEOBJECT    2 255 8 8
+                0 0 1 0 13 112 29 104 38 216 121 60 127 236 111 252
+                123 180 46 248 63 216 27 112 15 240 2 192 1 128 0 0
+
+
+
+DEFINESCREEN      5   2   2   2   2   2   2   2   2   2   2   2   2   2  15  15   2   2   2   2   2   2   2   2   2   2   2   2   2   4
+                  8   0   0   0   0   0   0   0   0   0   0   0   0   0   8   8   0   0   0   0   0   0   0   0   0   0   0   0   0   8
+                  8   0   0   9   9   9   9   9   9   9   9   9   9   9   8   8   0   9   9   9   9   9   9   9   9   9   9   9   0   8
+                  8   0   9   5   2   4   0   9   5   2   2   4   0   9   8   8   0   9   5   2   2   4   0   9   5   2   4   0   9   8
+                  8   0   9   6   2   7   0   9   6   2   2   7   0   9   6   7   0   9   6   2   2   7   0   9   6   2   7   0   9   8
+                  8   0   9   0   0   0   0   9   0   0   0   0   0   9   0   0   0   9   0   0   0   0   0   9   0   0   0   0   9   8
+                  8   0   9   9   9   9   9   9   9   9   9   9   9   9   9   9   9   9   9   9   9   9   9   9   9   9   9   9   9   8
+                  8   0   9   1   2   3   0   9  11   0   9   5   2   3  13  13   1   2   4   0   9  11   0   9   1   2   3   0   9   8
+                  7   0   9   0   0   0   0   9   8   0   9   8   0   0   0   0   0   0   8   0   9   8   0   9   0   0   0   0   9   6
+                  0   0   9   9   9   9   9   9   8   0   9   8   0   0   0   0   0   0   8   0   9   8   0   9   9   9   9   9   9   0
+                  9   9   9   1   2   4   0   9  12   0   9   6   2   2   2   2   2   2   7   0   9  12   0   9   5   2   3   0   9   9
+                  4   0   9   0   0   8   0   9   0   0   9   0   0   0   0   0   0   0   0   0   9   0   0   9   8   0   0   0   9   5
+                  8   0   9   9   9   8   0   9   9   9   9   9   9   9   9   9   9   9   9   9   9   9   9   9   8   0   9   9   9   8
+                 16   2   3   0   9  12   0   9  11   0   9   1   2   2  15  15   2   2   3   0   9  11   0   9  12   0   9   1   2  17
+                  8   0   0   0   9   0   0   9   8   0   9   0   0   0   8   8   0   0   0   0   9   8   0   9   0   0   9   0   0   8
+                  8   0   9   9   9   9   9   9   8   0   9   9   9   9   8   8   0   9   9   9   9   8   0   9   9   9   9   9   9   8
+                  8   0   9   1   2   2   2   2  14   2   2   3   0   9   8   8   0   9   1   2   2  14   2   2   2   2   3   0   9   8
+                  8   0   9   0   0   0   0   0   0   0   0   0   0   9   8   8   0   9   0   0   0   0   0   0   0   0   0   0   9   8
+                  8   0   0   9   9   9   9   9   9   9   9   9   9   9   8   8   0   9   9   9   9   9   9   9   9   9   9   9   0   8
+                  6   2   2   2   2   2   2   2   2   2   2   2   2   2  14  14   2   2   2   2   2   2   2   2   2   2   2   2   2   7
+SPRITEPOSITION  0 0 96 120
+SPRITEPOSITION  4 4 48 96
+SPRITEPOSITION  4 4 72 104
+SPRITEPOSITION  4 4 72 120
+SPRITEPOSITION  4 4 72 136
+
+DEFINESCREEN      0   0   0  18  18  18  18   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0  18   0   0  18   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0  18   0   0  18   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0  18  18  18  18   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0  18   0   0  18   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0  18   0   0  18   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0  18  18  18  18   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0  18   0   0  18   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0  18   0   0  18   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0  18  18  18  18   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0  18   0   0  18   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0  18   0   0  18   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0  18  18  18  18   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                 18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18
+                  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                 18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18
+                  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+SPRITEPOSITION  4 4 16 40
+SPRITEPOSITION  4 4 40 40
+SPRITEPOSITION  4 4 64 40
+SPRITEPOSITION  4 4 88 40
+SPRITEPOSITION  0 1 136 120
+SPRITEPOSITION  4 4 136 168
+SPRITEPOSITION  4 4 136 184
+SPRITEPOSITION  4 4 136 200
+SPRITEPOSITION  4 4 136 216
+
+DEFINESCREEN      0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+
+DEFINESCREEN      0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                 18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18
+                  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+                 18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18  18
+                  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+SPRITEPOSITION  0 1 136 152
+SPRITEPOSITION  4 5 136 224
+
+MAP             WIDTH 5
+                STARTSCREEN 1
+                255   2   0   1 255
+                255 255   3 255 255
+ENDMAP
+
+DEFINEFONT      0 0 0 0 0 0 0 0
+                0 32 32 32 32 0 32 0
+                80 80 0 0 0 0 0 0
+                0 80 248 80 248 80 0 0
+                32 112 192 96 48 224 32 0
+                0 160 32 64 64 128 160 0
+                0 64 160 64 176 160 112 0
+                64 64 0 0 0 0 0 0
+                0 32 64 64 64 64 32 0
+                0 64 32 32 32 32 64 0
+                0 32 248 112 248 32 0 0
+                0 64 64 224 64 64 0 0
+                0 0 0 0 0 0 32 64
+                0 0 0 224 0 0 0 0
+                0 0 0 0 0 0 64 0
+                0 32 32 64 64 128 128 0
+                0 96 144 176 208 144 96 0
+                0 64 192 64 64 64 224 0
+                0 96 144 16 96 128 240 0
+                0 96 144 32 16 144 96 0
+                0 32 96 160 240 32 32 0
+                0 240 128 224 16 16 224 0
+                0 96 128 224 144 144 96 0
+                0 240 16 32 32 64 64 0
+                0 96 144 96 144 144 96 0
+                0 96 144 144 112 16 96 0
+                0 0 64 0 0 64 0 0
+                0 0 64 0 0 64 128 0
+                0 0 32 64 128 64 32 0
+                0 0 128 64 32 64 128 0
+                0 0 0 224 0 224 0 0
+                0 224 16 32 64 0 64 0
+                0 96 144 176 176 128 112 0
+                0 96 144 144 240 144 144 0
+                0 224 144 224 144 144 224 0
+                0 96 144 128 128 144 96 0
+                0 192 160 144 144 144 224 0
+                0 240 128 224 128 128 240 0
+                0 240 128 224 128 128 128 0
+                0 96 144 128 176 144 112 0
+                0 144 144 240 144 144 144 0
+                0 224 64 64 64 64 224 0
+                0 48 16 16 16 144 96 0
+                0 144 160 192 160 144 144 0
+                0 128 128 128 128 128 240 0
+                0 136 216 168 136 136 136 0
+                0 144 208 208 176 176 144 0
+                0 96 144 144 144 144 96 0
+                0 224 144 144 224 128 128 0
+                0 96 144 144 176 144 112 0
+                0 224 144 160 192 160 144 0
+                0 112 128 64 32 16 224 0
+                0 248 32 32 32 32 32 0
+                0 144 144 144 144 144 96 0
+                0 136 136 80 80 32 32 0
+                0 136 136 136 168 168 80 0
+                0 144 144 96 96 144 144 0
+                0 136 136 80 32 32 32 0
+                0 240 16 32 64 128 240 0
+                0 96 64 64 64 64 96 0
+                0 128 128 64 64 32 32 0
+                0 96 32 32 32 32 96 0
+                64 160 0 0 0 0 0 0
+                0 0 0 0 0 0 0 248
+                48 64 64 224 64 64 240 0
+                0 224 16 112 144 144 112 0
+                0 128 128 224 144 144 224 0
+                0 0 96 128 128 144 96 0
+                0 16 16 112 144 144 112 0
+                0 0 96 144 240 128 112 0
+                0 48 64 224 64 64 64 0
+                0 0 112 144 144 112 16 96
+                0 128 128 128 224 144 144 0
+                0 64 0 192 64 64 224 0
+                0 32 0 96 32 32 32 192
+                0 128 144 160 192 160 144 0
+                0 64 64 64 64 64 32 0
+                0 0 80 168 168 136 136 0
+                0 0 224 144 144 144 144 0
+                0 0 96 144 144 144 96 0
+                0 0 224 144 144 224 128 128
+                0 0 112 144 144 112 16 16
+                0 0 96 128 128 128 128 0
+                0 0 112 128 96 16 224 0
+                0 64 224 64 64 64 32 0
+                0 0 144 144 144 144 96 0
+                0 0 136 136 80 80 32 0
+                0 0 136 136 136 168 80 0
+                0 0 144 144 96 144 144 0
+                0 0 144 144 144 112 16 224
+                0 0 240 32 64 128 240 0
+                0 96 64 192 64 64 96 0
+                0 64 64 64 64 64 64 0
+                0 192 64 96 64 64 192 0
+                0 80 160 0 0 0 0 0
+                112 136 32 64 64 32 136 112
+
+DEFINEPALETTE   0 3 28 31 224 227 252 255 0 44 156 15 248 131 190 253
+                0 3 28 31 224 227 252 255 0 44 156 15 248 131 190 253
+                0 3 28 31 224 227 252 255 0 44 156 15 248 131 190 253
+                0 3 28 31 224 227 252 255 0 44 156 15 248 131 190 253
+
+DEFINEMESSAGES
+
+	"GAME OVER"
+	"-Sombra    Blinki"
+	"-Veloz     Pinky"
+	"-Timido    Inky"
+	"-Lento     Clyde"
+	"PULSA ESPACIO PARA JUGAR"
+	"PREPARATE!"
+	"NIVEL"
+	
+EVENT PLAYER
+; Pacman
+
+SPRITEINK  14
+
+; velocidades
+IF L = 1
+    ; VELOCIDAD 4+ 110110
+    IF Z = 2
+	EXIT
+    ENDIF
+    IF Z = 5
+    	EXIT
+    ENDIF
+ENDIF
+IF L = 2
+    ; VELOCIDAD 5+ 111110
+    IF Z = 5
+        EXIT
+    ENDIF
+ENDIF
+
+; Control
+
+IF SCREEN = 0    ; si estamos en el Laberinto
+    IF F = 0        ; y estamos en modo "Jugando" entonces controlamos a Pac-man
+        IF KEY UP IF CANGOUP DIRECTION = UP ENDIF ENDIF
+	IF KEY DOWN IF CANGODOWN DIRECTION = DOWN ENDIF ENDIF
+	IF KEY LEFT IF CANGOLEFT DIRECTION = LEFT ENDIF ENDIF
+	IF KEY RIGHT IF CANGORIGHT DIRECTION = RIGHT ENDIF ENDIF
+    ELSE            ; en modos "Insert Coin" y "enmarcado" no controlamos a Pac-man
+	IF S > 10         ; si agotamos 10 segundos en estos modos entonces
+	    ENDGAME            ; salir a HIGH SCORE
+	ENDIF
+    ENDIF
+ENDIF
+
+; movimiento
+
+GETRANDOM 4
+LET A = RND        ; guardar en "A" dirección pseudoaleatoria
+
+IF DIRECTION = UP
+    IF CANGOUP              ; si no hay obstáculo a su paso
+        SPRITEUP                ; Pac-man se mueve
+	LET IMAGE = 2           ; mira en esa dirección
+	ANIMATE                 ; mueve la boca
+    ELSE                    ; en caso de encontrar obstáculo
+	IF F = 2                ; y estar en modo "Insert Coin"
+	    LET DIRECTION = A        ; establecer dirección "A"
+	ENDIF
+    ENDIF
+ENDIF
+
+IF DIRECTION = DOWN
+    IF CANGODOWN            ; si no hay obstáculo a su paso
+	SPRITEDOWN              ; Pac-man se mueve
+	LET IMAGE = 3           ; mira en esa dirección
+	ANIMATE                 ; mueve la boca
+    ELSE                    ; en caso de encontrar obstáculo
+	IF F = 2                ; y estar en modo "Insert Coin"
+            LET DIRECTION = A        ; establecer dirección "A"
+	ENDIF
+    ENDIF
+ENDIF
+
+IF DIRECTION = RIGHT
+    IF X >= RIGHTEDGE
+        LET X = LEFTEDGE
+        EXIT
+    ELSE
+        IF CANGORIGHT
+            SPRITERIGHT
+	    IF SCREEN > 0      ; si estamos en "START" o "INTERMISSION"
+		IF M >= 200        ; y si atrapamos a "Kokoro"
+	            LET IMAGE = 14	; transforma pieza inferior izquierda de Big-man.
+		ELSE
+                    LET IMAGE = 0
+                ENDIF
+	    ELSE
+		LET IMAGE = 0
+	    ENDIF
+            ANIMATE
+	ELSE
+	    IF F = 2
+		LET DIRECTION = A
+	    ENDIF
+        ENDIF
+    ENDIF
+ENDIF
+
+IF DIRECTION = LEFT
+    IF X <= LEFTEDGE
+        LET X = RIGHTEDGE
+        EXIT
+    ELSE
+        IF CANGOLEFT
+            SPRITELEFT
+	    IF SCREEN > 0      ; si estamos en "START" o "INTERMISSION"
+		IF M < 200        ; y si no tenemos "el poder".
+	            LET IMAGE = 1    ; restauramos la forma Pac-man
+		ENDIF
+	    ELSE
+		LET IMAGE = 1
+	    ENDIF
+            ANIMATE
+	ELSE
+	    IF F = 2
+		LET DIRECTION = A
+	    ENDIF
+        ENDIF
+    ENDIF
+ENDIF
+
+; comprobaciones
+
+IF SCREEN = 3    ; si estamos en pantalla INTERMISSION
+    IF S > 7          ; y agotamos 7 segundos
+        SILENCE           ; parar el reproductor con tema INTERMISION
+		LET X = 112       ; posición GET READY
+		LET Y = 96
+		LET FRAME = 0
+		LET IMAGE = 0     ; mirar a derecha
+		LET DIRECTION = RIGHT
+		LET SCREEN = 0    ; saltar a la pantalla LABERINTO
+        LET F = 0         ; restauramos modo "Juego"
+	EXIT              ; salir del script
+    ENDIF
+ENDIF
+
+IF SCREEN = 1            ; si estamos en la pantalla START
+    IF KEY FIRE1	    ; si pulsamos FIRE1 entonces
+		LET F = 0	    ; pasa a modo "Jugando"
+		LET X = 112	    ; define posición y nuevas propiedades
+		LET Y = 96
+		LET FRAME = 0
+		LET DIRECTION = RIGHT
+		LET IMAGE = 0
+		LET SCREEN = 0      ; nuevo decorado = "laberinto"
+		EXIT                ; salir del script
+    ENDIF
+    IF S > 10             ; si agotamos 10 segundos entonces
+        LET F = 2            ; pasamos a modo "Insert coin"
+        LET X = 112	     ; nueva posición GET READY
+        LET Y = 96
+        LET FRAME = 0        ; nuevas propiedades
+        LET DIRECTION = RIGHT
+        LET SCREEN = 0       ; nuevo decorado = "laberinto"
+        LET IMAGE = 0
+        EXIT                 ; salir del script
+    ENDIF
+ENDIF
+
+IF M < 100							; RESET SERIE BONUS FANTASMAS
+	RESTORE
+ENDIF
+
+IF N = 193	    ; si terminamos el tablero entonces
+    ADD 1 TO P        ; sumamos una pantalla terminada más
+    IF P = 8
+	LET L = 2        ; subimos de nivel dificultad del juego
+	ADD 1 TO LIVES   ; te damos vida extra!
+	; BEEP           ; efecto sonido "VIDA EXTRA"
+    ELSE
+	IF P = 16
+            LET L = 3        ; subimos al máximo nivel
+	    ADD 1 TO LIVES   ; te damos última vida extra
+	    ; BEEP           ; efecto sonido "VIDA EXTRA"
+	ENDIF
+    ENDIF
+    ADD 1 TO C        ; suma contador de CICLOS DE INTERMISION
+    REMOVE	      ; nos BORRAMOS
+    LET SCREEN = 2    ; salto a PANTALLA TRANSITO/PUNTUACION
+    LET S = 0         ; restaurar cronómetro
+    EXIT
+ENDIF
+
+; detección
+
+GETBLOCKS		; COME COCOS
+
+DETECTOBJ		; Para las PILDORAS
+
+IF OBJ < 4       ; si es una PILDORA DE PODER
+    ADD 1 TO D        ; suma PILDORAS PODER
+    IF F = 0          ; solo si estamos "jugando" entonces
+		SCORE 50         ; suma 50 puntos
+		;BEEP 60          ; sonido "Gulp"
+		SOUND 102
+    ENDIF
+    AT 22 2
+    SHOWSCORE
+    LET M = 200
+    GET OBJ           ; COME
+    IF SCREEN > 0     ; si estamos en "START" o "INTERMISSION"
+		LET DIRECTION = RIGHT   ; gira para perseguir a los fantasmas
+		LET IMAGE = 14          ; transformación en Big-man
+        LET FRAME = 0
+		SPAWN 6 17		; instancia pieza "Big-man"
+		SPAWNED
+			ADD 15 TO X	            ; posición abajo derecha
+			LET FRAME = 0           ; asegura fotograma 0
+			LET DIRECTION = RIGHT
+		ENDSPRITE
+        SPAWN 6 15		; instancia pieza "Big-man"
+		SPAWNED
+			SUBTRACT 16 TO Y        ; posición arriba
+			SUBTRACT 1 TO X
+			LET FRAME = 0
+			LET DIRECTION = RIGHT
+		ENDSPRITE
+		SPAWN 6 16		; instancia pieza "Big-man"
+		SPAWNED
+			ADD 15 TO X	            ; posición arriba derecha
+			SUBTRACT 16 TO Y
+			LET FRAME = 0
+			LET DIRECTION = RIGHT
+		ENDSPRITE
+    ENDIF
+ENDIF
+
+IF COLLISION 3    ; come fantasmas "asustados"
+    READ A
+    REPEAT A
+        ADD 1 TO J        ; suma un PACK BONUS al contador
+		IF F = 0              ; solo si estamos "jugando" entonces
+			SCORE 200            ; suma 200 puntos
+		ENDIF
+    ENDREPEAT
+    READ A
+    PUT X Y A
+    LET B = 1        ; inicia CONTADOR ciclo imagen BONUS
+    IF A = 7
+		RESTORE
+    ENDIF
+    AT 22 2
+    SHOWSCORE
+    ADD 1 TO G	     ; aumenta TOTAL FANTASMAS POR PANTALLA
+    IF F = 0         ; solo si estamos "jugando" entonces
+        ;BEEP 250          ; sonido "eat ghost"
+		SOUND 104
+    ENDIF
+    OTHER	
+		LET TYPE = 1      ; transforma a modo "ojos incorpóreos"
+		LET IMAGE = 6
+		LET FRAME = 0
+    ENDSPRITE
+ENDIF
+
+LET V = X                ; Revela tu posición X
+LET W = Y                ; Revela tu posicion Y
+LET I = DIRECTION        ; Revela tu direccion
+
+; multiplicador, objeto
+DATA 1 4 2 5 4 6 8 7          ; serie bonus por fantasma
+EVENT SPRITETYPE1
+
+; Objetivo Regresar a casa, ojos incorpóreos
+
+SPRITEINK SETTINGA          ; mi color es mi identidad
+
+IF SCREEN > 0	; si estamos en "START" o "INTERMISSION" entonces
+    REMOVE        ; no aparecen los ojos incorpóreos
+ENDIF
+
+IF X = 104
+    IF Y = 72            ; en "posición inicial"
+	LET TYPE = 4 	    ; REAPARECE en modo perseguir/dispersar
+	LET SETTINGB = D    ; memoriza "última bola energizante"
+	LET IMAGE = 4       ; cambia de apariencia
+	LET FRAME = 0       ; asegura fotograma 0
+        IF F = 0            ; solo si estamos "Jugando" entonces
+	    ;SOUND 107            ; sonido "Sirena fantasma 128k"
+        ENDIF
+    ENDIF
+ENDIF
+
+IF LADDERBELOW        ; estoy "a las puertas de casa"
+    SPRITEDOWN            ; MUEVE abajo
+    EXIT                  ; salir del script
+ENDIF
+
+; movimiento
+
+IF DIRECTION = UP
+    ; girar contra reloj
+    IF CANGOUP
+        SPRITEUP
+    ELSE
+        LET DIRECTION = LEFT
+    ENDIF
+
+    ; movimiento hacia objetivo
+    IF X > 112
+        IF CANGOLEFT
+            LET DIRECTION = LEFT
+            ANIMATE
+        ENDIF
+    ELSE
+        IF CANGORIGHT
+            LET DIRECTION = RIGHT
+            ANIMATE
+        ENDIF
+    ENDIF
+ENDIF
+
+IF DIRECTION = DOWN
+    IF LADDERBELOW        ; estoy "a las puertas de casa"
+        SPRITEDOWN            ; MUEVE abajo
+        EXIT                  ; salir del script
+    ENDIF
+    ; girar sentido reloj
+    IF CANGODOWN
+        SPRITEDOWN
+    ELSE
+        LET DIRECTION = RIGHT
+    ENDIF
+    ; movimiento hacia objetivo
+    IF X > 112
+        IF CANGOLEFT
+            LET DIRECTION = LEFT
+            ANIMATE
+        ENDIF
+    ELSE
+        IF CANGORIGHT
+            LET DIRECTION = RIGHT
+            ANIMATE
+        ENDIF
+    ENDIF
+ENDIF
+
+IF DIRECTION = LEFT
+    ; atraviesa túnel, poco probable.
+    IF X <= LEFTEDGE
+        LET X = RIGHTEDGE
+        EXIT
+    ELSE
+        ; giro sentido reloj
+        IF CANGOLEFT
+            SPRITELEFT
+        ELSE
+            LET DIRECTION = DOWN
+        ENDIF
+    ENDIF
+    ; movimiento hacia objetivo
+    IF Y > 64
+        IF CANGOUP
+            LET DIRECTION = UP
+            ANIMATE
+        ENDIF
+    ELSE
+        IF CANGODOWN
+            LET DIRECTION = DOWN
+            ANIMATE
+        ENDIF
+    ENDIF
+ENDIF
+
+IF DIRECTION = RIGHT
+    ; chequear túnel
+    IF X >= RIGHTEDGE
+        LET X = LEFTEDGE
+        EXIT
+    ELSE
+        ; giro contra reloj
+        IF CANGORIGHT
+            SPRITERIGHT
+        ELSE
+            LET DIRECTION = DOWN
+        ENDIF
+    ENDIF
+    ; movimiento hacia objetivo
+    IF Y > 64
+        IF CANGOUP
+            LET DIRECTION = UP
+            ANIMATE
+        ENDIF
+    ELSE
+        IF CANGODOWN
+            LET DIRECTION = DOWN
+            ANIMATE
+        ENDIF
+    ENDIF
+ENDIF
+EVENT SPRITETYPE2
+
+; Muerte de Pacman: entre frames reproduce un segmento de Sonido
+; Para dar la impresión de continuidad
+
+IF K < 5
+    LET IMAGE = 7
+    FRAME K
+    ANIMATE SLOW
+    ADD 1 TO K
+    IF K = 1
+		IF F = 0
+			;BEEP 120
+			SOUND 105	; fx "Death 1"
+			;DELAY 25    ; pausa
+		ENDIF
+	ENDIF
+    IF K = 2
+		IF F = 0
+			;BEEP 80
+			SOUND 106	; fx "Death 2"
+			;DELAY 25    ; pausa
+		ENDIF
+    ENDIF
+    IF K =4
+		IF F = 0
+			;BEEP 60
+			SOUND 107	; fx "Death 3"
+			;DELAY 25    ; pausa
+		ENDIF
+    ENDIF
+ELSE                ; K = 5 
+    IF LIVES = 0        ; no quedan vidas 
+        AT 9 13
+        MESSAGE 0                ; GAME OVER
+        DELAY 34
+        REMOVE
+        LET SCREEN = 2           ; salta a pantalla "BONUS"
+        EXIT        
+    ELSE	        ; reaparezco, aún me quedan vidas.
+        LET TYPE = 0             ; transformar en Pac-man
+        LET IMAGE = 1            ; con su apariencia.
+        LET X = 112              ; en posición. GET READY.
+        LET Y = 96
+        LET FRAME = 0
+        LET DIRECTION = RIGHT    ; mirando a derecha.
+    ENDIF
+ENDIF
+
+EVENT SPRITETYPE3
+
+; MODO MIEDO ASUSTADO
+
+SPRITEINK 1    ; COLOREAMOS
+
+IF M < 100                ; Pac-man pierde el poder
+    IF SETTINGB < 16	    ; PARPADEO
+	GETRANDOM 8
+	LET A = RND
+	SPRITEINK A
+	ADD 1 TO SETTINGB
+    ELSE
+	LET TYPE = 4	    ; CAMBIA A MODO PERSEGUIR
+	LET IMAGE = 4
+	LET FRAME = 0
+	LET SETTINGB = 0    ; RESET PARPADEO
+    ENDIF
+ENDIF
+
+
+IF K = 1            ; Pac-man está muriendo
+    IF SETTINGA = 2
+	LET X = 96
+	LET Y = 48        ; posición inicial de Blinky
+    ENDIF
+    IF SETTINGA = 3
+	LET X = 104
+	LET Y = 72        ; posición inicial de Pinky
+    ENDIF
+    IF SETTINGA = 5
+	LET X = 120
+	LET Y = 72        ; posición inicial de Inky
+    ENDIF
+    IF SETTINGA = 6
+	LET X = 136
+	LET Y = 72        ; posición inicial de Clyde
+    ENDIF
+ENDIF
+
+; velocidades
+IF L = 1
+    ; VELOCIDAD 3+ 010101
+    IF Z = 0
+        EXIT
+    ENDIF
+    IF Z = 2
+        EXIT
+    ENDIF
+    IF Z = 4
+        EXIT
+    ENDIF
+ENDIF
+IF L >= 2
+    ; VELOCIDAD 4+ 110110
+    IF Z = 2
+	EXIT
+    ENDIF
+    IF Z = 5
+    	EXIT
+    ENDIF
+ENDIF
+
+; movimiento
+
+GETRANDOM 4    ; GENERAR NUMERO PSEUDOALEATORIO 4=(0,1,2,3)(SEED)
+LET A = RND    ; A = DIRECCIONES (0,1,2,3)
+
+IF DIRECTION = UP
+    IF CANGOUP
+        SPRITEUP
+    ELSE                    ; CUANDO SE ENCUENTRA UN OBSTÁCULO
+	LET DIRECTION = A    ; GENERAR DIRECTION = RND Y VAGAR
+    ENDIF
+ENDIF
+
+IF DIRECTION = DOWN
+    IF CANGODOWN
+       	SPRITEDOWN
+    ELSE
+	LET DIRECTION = A    ; VAGAR
+    ENDIF
+ENDIF
+
+IF DIRECTION = LEFT
+    IF X <= LEFTEDGE
+        LET X = RIGHTEDGE    ; TUNEL
+	EXIT
+    ELSE
+    	IF CANGOLEFT
+       	    SPRITELEFT
+	ELSE
+	    LET DIRECTION = A	; VAGAR
+	ENDIF
+    ENDIF
+ENDIF
+
+IF DIRECTION = RIGHT
+    IF X >= RIGHTEDGE
+	LET X = LEFTEDGE        ; TUNEL
+	EXIT
+    ELSE
+	IF CANGORIGHT
+	    SPRITERIGHT
+	ELSE
+	    LET DIRECTION = A	; VAGAR
+	ENDIF
+    ENDIF
+ENDIF
+
+EVENT SPRITETYPE4
+
+; FANTASMAS
+
+SPRITEINK SETTINGA        ; Soy mi color
+
+IF M >= 200	        ; si PACMAN TIENE EL PODER
+    IF D > SETTINGB	    ; bola nueva
+	LET TYPE = 3	    ; transforma a TIPO "ASUSTADO"
+	LET IMAGE = 5
+	LET FRAME = 0
+    ENDIF
+    IF SCREEN > 0       ; y si estamos en "START" o en "INTERMISSION"
+		LET DIRECTION = RIGHT    ; los fantasmas giran a la derecha.
+    ENDIF
+ENDIF
+
+; define el objetivo.
+IF SETTINGA = 2    ; BLINKY
+    LET T = X            ; Revelo X para Inky
+    LET U = Y            ; Revelo y para Inky
+
+    IF M < 100            ; modo despliegue
+	LET Q = 160	    ; segundo cuadrante.
+	LET R = 16
+    ELSE                  ; modo perseguir
+	LET Q = V	    ; TARJET
+	LET R = W
+    ENDIF
+ENDIF
+
+IF SETTINGA = 3    ; PINKY
+    IF M < 100            ; modo despliegue
+	LET Q = 16            ; primer cuadrante
+	LET R = 16
+    ELSE                  ; modo perseguir
+        LET Q = V            ; X TRAJET
+        LET R = W            ; Y TRAJET
+
+        IF I = RIGHT        ; si Pac-man mira a la derecha
+	    ADD 32 TO Q        ; apunta 4 celdas por delante
+        ELSE
+	    IF I = LEFT        ; lo mismo para izquierda
+                SUBTRACT 32 TO Q
+	    ELSE
+	        IF I = UP
+		    SUBTRACT 32 TO R
+	        ELSE
+		    ADD 32 TO R
+	        ENDIF
+	    ENDIF
+        ENDIF
+    ENDIF
+ENDIF
+
+IF SETTINGA = 5    ; INKY
+    IF M < 100            ; modo dispersión
+	LET Q = 160            ; cuarto cuadrante
+	LET R = 120
+    ELSE        	; modo persecución
+	LET Q = V	    ; X TRAJET
+	LET R = W	    ; Y TRAJET
+
+	IF I = RIGHT
+	    ADD 16 TO Q
+	ELSE
+	    IF I = LEFT
+		SUBTRACT 16 TO Q
+            ELSE
+		IF I = UP
+		    SUBTRACT 16 TO R
+		ELSE
+	            ADD 16 TO R
+		ENDIF
+            ENDIF	
+	ENDIF
+
+	MULTIPLY Q BY 2		; INTERPOLAR CON BLINKY
+	SUBTRACT T TO Q
+	MULTIPLY R BY 2
+	SUBTRACT U TO R
+    ENDIF
+ENDIF
+
+IF SETTINGA = 6    ; Clyde
+    IF M < 100            ; despliegue
+	LET Q = 56          ; tercer cuadrante
+	LET R = 120
+    ELSE	          ; persigue
+        LET Q = X
+        IF X < V            ; asegurar numero positivo. (absoluto).
+	    SUBTRACT X TO V
+	    LET Q = V       ; Q = DISTANCIA horizontal con PAC-MAN       
+	    ADD X TO V	; restaura V
+        ELSE
+	    SUBTRACT V TO Q ; Q = DISTANCIA horizontal con PAC-MAN
+        ENDIF
+
+        LET R = Y
+        IF Y < W            ; asegurar numero positivo. (absoluto).
+            SUBTRACT Y TO W
+	    LET R = W       ; Q = DISTANCIA horizontal con PAC-MAN 
+	    ADD Y TO W      ; restaura W
+        ELSE
+	    SUBTRACT W TO R ; R = DISTANCIA vertical con PAC-MAN
+        ENDIF
+
+        IF Q < 64    ; si Pac-man está a menos de 4 celdas entonces
+	    IF R < 64
+	        LET Q = 56	; despliegue tercer cuadrante
+	        LET R = 120
+	    ENDIF
+        ELSE       ; si no, entonces persigue.
+            LET Q = V
+            LET R = W
+        ENDIF
+    ENDIF
+ENDIF
+
+; muerte de Pac-man
+IF K = 1            ; Pac-man está muriendo
+    IF SETTINGA = 2
+	LET X = 96
+	LET Y = 48        ; posición inicial de Blinky
+    ENDIF
+    IF SETTINGA = 3
+	LET X = 104
+	LET Y = 72        ; posición inicial de Pinky
+    ENDIF
+    IF SETTINGA = 5
+	LET X = 120
+	LET Y = 72        ; posición inicial de Inky
+    ENDIF
+    IF SETTINGA = 6
+	LET X = 136
+	LET Y = 72        ; posición inicial de Clyde
+    ENDIF
+ENDIF
+
+IF X = 120								; A las puertas
+	IF Y = 72
+		GETRANDOM 4
+		IF RND = 1
+			LET DIRECTION = UP		; pa FUERA!
+			SPRITEUP
+			EXIT
+		ENDIF
+	ENDIF
+ENDIF
+
+; velocidades
+IF SETTINGA = 2
+    ; Blinky es el más rápido
+    IF L = 1
+        ; VELOCIDAD 5+ 111110
+        IF Z = 5
+            EXIT
+        ENDIF
+    ENDIF
+ELSE
+    ; PINKY, INKY Y CLYDE
+    IF L = 1
+        ; VELOCIDAD 4+ 110110
+        IF Z = 2
+	    EXIT
+        ENDIF
+        IF Z = 5
+    	    EXIT
+        ENDIF
+    ENDIF
+    IF L >= 2
+        ; VELOCIDAD 5+ 111110
+        IF Z = 5
+            EXIT
+        ENDIF
+    ENDIF
+ENDIF
+
+; movimiento
+
+IF DIRECTION = UP
+    ; gira a favor del reloj
+    IF CANGOUP
+        SPRITEUP
+    ELSE
+        LET DIRECTION = RIGHT
+    ENDIF
+
+    ; PERSIGUE EN UNA BIFURCACION	
+    IF X > Q
+        IF CANGOLEFT
+            LET DIRECTION = LEFT
+            ANIMATE
+        ENDIF
+    ELSE
+        IF CANGORIGHT
+            LET DIRECTION = RIGHT
+            ANIMATE
+        ENDIF
+    ENDIF
+ENDIF
+
+IF DIRECTION = DOWN
+    ; gira en contra del reloj
+    IF CANGODOWN
+       	SPRITEDOWN
+    ELSE
+        LET DIRECTION = LEFT
+    ENDIF
+
+    ; PERSIGUE EN UNA BIFURCACION	
+    IF X > Q
+        IF CANGOLEFT
+            LET DIRECTION = LEFT
+            ANIMATE
+        ENDIF
+    ELSE
+        IF CANGORIGHT
+            LET DIRECTION = RIGHT
+            ANIMATE
+        ENDIF
+    ENDIF
+ENDIF
+
+IF DIRECTION = LEFT
+    ; gira a favor del reloj
+    IF X <= LEFTEDGE
+        LET X = RIGHTEDGE
+        EXIT
+    ELSE
+    	IF CANGOLEFT            
+            SPRITELEFT
+        ELSE
+            LET DIRECTION = UP
+        ENDIF
+    ENDIF
+
+    ; PERSIGUE
+    IF Y > R
+        IF CANGOUP
+            LET DIRECTION = UP
+            ANIMATE
+        ENDIF
+    ELSE
+        IF CANGODOWN
+            LET DIRECTION = DOWN
+            ANIMATE
+        ENDIF
+    ENDIF
+ENDIF
+
+IF DIRECTION = RIGHT
+    ; gira a favor del reloj
+    IF X >= RIGHTEDGE
+        LET X = LEFTEDGE
+        EXIT
+    ELSE
+        IF CANGORIGHT
+            SPRITERIGHT
+        ELSE
+            LET DIRECTION = DOWN
+        ENDIF
+    ENDIF
+
+    ; PERSIGUE
+    IF Y > R
+        IF CANGOUP
+            LET DIRECTION = UP
+            ANIMATE
+        ENDIF
+    ELSE
+        IF CANGODOWN
+            LET DIRECTION = DOWN
+            ANIMATE
+        ENDIF
+    ENDIF
+ENDIF
+
+IF COLLISION PLAYER
+    IF K = 5
+        OTHER
+			IF F = 0                ; solo en modo "Jugando" entonces
+				SUBTRACT 1 TO LIVES    ; resta una vida		
+				;SOUND 105             ; sonido "Death 128k"
+			ENDIF
+			AT 22 16
+			DISPLAY LIVES
+			LET K = 0			
+			LET TYPE = 2            ; transforma en "LA MUERTE DE PACMAN"
+		ENDSPRITE
+    ENDIF
+ENDIF
+
+
+EVENT SPRITETYPE5
+
+; FRUTAS
+; deben permanecer 10 segundos
+
+SPRITEINK SETTINGA
+
+IF S = 10              ; agotamos 10 segundos en pantalla
+    REMOVE             ; desaparece
+    GETRANDOM 5
+    LET S = RND        ; restaurar cronómetro FRUTAS
+ENDIF
+
+IF COLLISION PLAYER    ; somos capturados
+    GETRANDOM 5
+    LET S = RND        ; restaurar cronómetro FRUTAS
+    REPEAT SETTINGB
+	READ A             ; lee multiplicador en posición SETTINGB de la serie
+    ENDREPEAT
+    REPEAT A
+        IF F = 0           ; solo si estamos "Jugando" entonces
+            SCORE 200	       ; suma 200 puntos al SCORE
+        ENDIF
+	ADD 1 TO J         ; cuenta BONUS FRUTAS
+    ENDREPEAT
+    READ A            ; lee marcador BONUS
+	LET B = 4 
+	WHILE B < 8
+        GET B         ; borra marcadores BONUS
+		ADD 1 TO B
+	ENDWHILE
+    PUT X Y A         ; pinta marcador en pantalla
+    LET B = 1         ; inicia cronómetro marcador BONUS
+    AT 22 2
+    SHOWSCORE         ; actualiza marcador SCORE
+    IF F = 0           ; solo si estamos "Jugando" entonces
+        ;BEEP 30            ; sonido "Eat Fruit"
+		SOUND 103
+    ENDIF
+    RESTORE           ; restaura serie DATA
+    REMOVE            ; desaparece
+    ADD 1 TO H        ; suma 1 al contador de FRUTAS
+ENDIF
+
+; diccionario: multiplicador, marcador Bonus
+DATA 1 4 2 5 2 5 4 6 4 6 8 7
+
+EVENT SPRITETYPE6
+
+; Big-man
+
+SPRITEINK 14
+
+; comprobaciones
+
+IF M < 200        ; Big-man pierde el "poder"
+    REMOVE            ; se borra a sí mismo.
+ENDIF
+
+; sección de velocidad
+
+IF L = 1
+    ; VELOCIDAD 4+ 110110
+    IF Z = 2
+	EXIT
+    ENDIF
+    IF Z = 5
+    	EXIT
+    ENDIF
+ENDIF
+IF L = 2
+    ; VELOCIDAD 5+ 111110
+    IF Z = 5
+        EXIT
+    ENDIF
+ENDIF
+
+; sección de movimiento
+
+IF DIRECTION = RIGHT
+    IF X >= RIGHTEDGE
+        LET X = LEFTEDGE
+        EXIT
+    ELSE
+	ANIMATE SLOW
+	SPRITERIGHT
+    ENDIF
+ENDIF
+EVENT SPRITETYPE7
+
+
+EVENT SPRITETYPE8
+
+
+EVENT INITSPRITE
+
+; aparecer fantasmal
+
+IF TYPE = 4                   ; si el Sprite es Perseguidor
+    REPEAT A                  ; repite para A.
+        READ SETTINGA         ; lee el color y resérvalo en SETTINGA
+		LET SETTINGB = D      ; memoriza la "última bola de poder"
+    ENDREPEAT
+    ADD 1 TO A                ; pasamos al siguiente fantasma
+    IF A = 5
+        LET A = 1             ; si aparecieron 4, reinicia A. 
+    ENDIF
+ENDIF
+
+LET FRAME = 0                 ; asegura fotograma = 0.
+
+DATA 2, 3, 5, 6
+EVENT MAINLOOP1
+
+SOUND 96
+
+; CRONOMETRO
+LET A = CLOCK
+SUBTRACT O FROM A
+IF A >= 50
+    ADD 50 TO O    ; variable O (letra o) es última lectura de CLOCK.
+    ADD 1 TO M     ; cronómetro MODOS
+    ADD 1 TO B     ; cronómetro marcador BONUS
+    ADD 1 TO S     ; cronómetro FRUTAS
+ENDIF
+
+IF B > 0           ; hay marcador BONUS en el tablero
+    IF B < 3
+        ; agota 3 segundos
+    ELSE
+        LET B = 4 
+	WHILE B < 8
+            GET B         ; borra marcadores BONUS
+	    ADD 1 TO B
+	ENDWHILE
+	LET B = 0         ; restaura cronómetro
+    ENDIF
+ENDIF
+
+; frutas
+IF S = 15        ; primera aparición de BONUS FRUTAS
+    IF F = 0        ; solo si estamos "Jugando" entonces
+        LET S = 0    	; restauramos cronómetro
+        READ A		; lee FRUTA
+        SPAWN 5 A       ; instancia una FRUTA
+        SPAWNED
+            LET X = 112
+            LET Y = 96           ; posición GET READY
+            SUBTRACT 7 TO A
+	    MULTIPLY A BY 2
+	    SUBTRACT 1 TO A      ; posición en la serie = (A-7)*2-1
+	    LET SETTINGB = A     ; guardar índice en SETTINGB	
+	    READ SETTINGA	 ; leer color y guardar en SETTINGA 
+        ENDSPRITE
+    ENDIF
+ENDIF
+
+; Gestor de modos
+IF M < 100            ; DISPERSION
+    IF N > 128           ; finalizando el laberinto (N = BOLAS)
+        IF M > 1            ; agotamos periodo de solo un segundo
+            LET M = 100        ; y cambio a persecución.
+	ENDIF
+    ELSE                 ; al comienzo del laberinto
+        IF M > 5            ; agotamos periodo de 5 segundos
+            LET M = 100        ; y después persigue.
+        ENDIF
+    ENDIF
+ELSE
+    IF M < 200	        ; PERSECUCION
+        IF M > 120          ; agotamos periodo de 20 segundos
+            LET M = 0          ; y otra vez dispersión.
+	ENDIF
+    ELSE    		; Pac-man "tiene el poder" ASUSTADO
+        LET A = 210         ; periodo inicial de 10 segundos.
+	IF F = 0            ; solo si estamos jugando entonces
+            SUBTRACT P TO A     ; resta un segundo por nivel
+	ENDIF
+        IF P >= 20          ; a partir del nivel 20
+	    LET M = 0          ; ya no tienen miedo
+        ELSE
+	    IF M > A        ; agotamos periodo
+                LET M = 0      ; volvemos a dispersión.
+            ENDIF
+        ENDIF
+    ENDIF
+ENDIF
+
+; Contador de frames del juego
+ADD 1 TO Z
+IF Z > 5
+	LET Z = 0	; pulso (tic) 0, 1, 2, 3, 4, 5
+ENDIF
+
+; datos: fruta, color
+DATA 8 2 9 2 10 3 11 6 12 2 13 7
+
+EVENT MAINLOOP2
+
+IF SCREEN = 1        ; si estamos en la pantalla START
+    IF F = 1            ; y en modo "enmarcado"
+	INK 2                ; pinta estos mensajes
+	PAPER 0
+	AT 3 9 MESSAGE 1
+	INK 3
+	PAPER 0
+	AT 6 9 MESSAGE 2
+	INK 5
+	PAPER 0
+	AT 9 9 MESSAGE 3
+	INK 6
+	PAPER 0
+	AT 12 9 MESSAGE 4
+	INK 7
+	PAPER 0
+	AT 14 4 MESSAGE 5
+	PUT 8 136 0           ; pinta a Kokoro
+	LET F = 2             ; y pasa a modo "Insert coin".
+    ENDIF
+ENDIF
+
+IF SCREEN = 0	    ; si estamos en el LABERINTO
+    IF F = 1            ; y en modo "enmarcado Jugando"
+		PUT  16 16 0        ; pinta objetos
+		PUT  224 16 1
+		PUT  16 144 2
+		PUT  224 144 3
+		AT 22 16            ; pinta marcador
+		DISPLAY LIVES
+		AT 9 13
+		MESSAGE 6	    ; GET READY!
+		IF P = 1            ; si comenzamos en el primer laberinto
+			SOUND 1			; Tema musical Pac-man
+			SOUND 0             ; Música sólo una vez
+			;DELAY 200          ; Espera a la música
+			SOUND 36			; monitor
+			WHILE A = 1			; repite mientras suena el tema Pac-man
+				SOUND 96			; reproduce siguiente nota
+				SOUND 36			; monitor
+			ENDWHILE
+		ELSE
+			DELAY 25            ; Espera a GET READY!
+		ENDIF
+		REDRAW              ; Redibuja
+		LET F = 0           ; pasa a modo "Jugando"
+		EXIT                ; salir
+    ELSE
+        IF F = 3        ; par el modo "enmarcado Insert coin"
+            PUT  16 16 0    ; coloca objetos
+            PUT  224 16 1
+            PUT  16 144 2
+            PUT  224 144 3
+            LET F = 2       ; pasa a modo "Insert coin"
+            EXIT
+        ENDIF
+    ENDIF
+ENDIF
+
+IF SCREEN = 2    ; si estamos en la pantalla BONUS
+    IF F = 1        ; y estamos en modo "enmarcado"
+		PUT 96 28 9    ; coloca las cuatro "bolas de poder"
+		PUT 96 44 8
+		PUT 96 68 10
+		PUT 96 92 11
+		AT 4 15        ; pinta marcador de "puntos de luz"
+		PRINT "5x"
+		AT 4 18
+		DISPLAY N 
+		IF N > 0
+			REPEAT N       ; por cada "punto" comido
+				BONUS 5       ; añade 5 bonus
+				AT 17 15      ; y pinta bonus.
+				SHOWBONUS
+			ENDREPEAT
+		ENDIF
+            ;BEEP 18     ; reproducir FX "score"
+            SOUND 108
+            DELAY 2
+		AT 6 15        ; pinta marcador de "bolas de poder"
+		PRINT "50x"
+		AT 6 19
+		DISPLAY D
+		IF D > 0
+			REPEAT D
+				BONUS 50       ; añade 50 bonus por cada "bola"
+				AT 17 15
+				SHOWBONUS
+			ENDREPEAT
+		ENDIF
+            ;BEEP 18     ; reproducir FX "score"
+            SOUND 108
+            DELAY 2
+		AT 9 15        ; pinta marcador "fantasmas"
+		DISPLAY G
+		AT 12 15       ; pinta marcador "frutas"
+		DISPLAY H
+		AT 14 5        ; pinta marcador "packs bonus"
+		PRINT "200 BONUS x"
+		AT 14 17
+		DISPLAY J
+		AT 17 9        ; pinta marcador "Total"
+		PRINT "TOTAL"
+		IF J > 0
+			REPEAT J
+				BONUS 200  ; añade 200 bonus por cada "pack bonus"
+				AT 17 15
+				SHOWBONUS  ; pinta bonus
+					;BEEP 18     ; y reproducir FX "score"
+					SOUND 108
+					DELAY 2
+			ENDREPEAT
+		ENDIF
+		ZEROBONUS      ; restaura registro bonus
+		AT 22 2
+		SHOWSCORE
+		LET F = 2      ; pasar a modo INSERT COIN
+    ELSE            ; pero si estamos en modo "INSERT COIN"
+		IF S = 6       ; y si agotamos 6 segundos
+			IF LIVES = 0   ; y si agotamos las 3 vidas entonces
+				ENDGAME        ; salir a HIGH SCORE (S = 6, LIVES = 0)
+			ELSE           ; pero si aún tenemos vidas               
+				IF C > 3       ; y si acumulas 3 Laberintos completados.
+					LET C = 1     ; restaura C
+					SPAWN 0 1     ; instancia PLAYER (lo habíamos borrado).
+					SPAWNED          ; accede a sus propiedades.
+						LET X = 112      ; nueva posición en INTERMISSION
+						LET Y = 136
+						LET IMAGE = 0    ; mirando a izquierda
+						LET DIRECTION = LEFT
+					ENDSPRITE
+					LET SCREEN = 3   ; saltar a INTERMISION (S = 6, C > 3)
+					EXIT             ; salir del script
+				ELSE          ; en caso contrario (C <= 3)	
+					LET F = 0        ; pasar a modo "Jugando"
+					SPAWN 0 1        ; Instancia PLAYER (estaba borrado).
+					SPAWNED          ; accede a sus propiedades
+						LET X = 112      ; nueva posición GET READY
+						LET Y = 96
+						LET IMAGE = 1
+						LET DIRECTION = RIGHT
+					ENDSPRITE
+					LET SCREEN = 0       ; saltar a LABERINTO (S = 6, LIVES > 0)
+					EXIT
+				ENDIF
+			ENDIF
+        ENDIF
+    ENDIF
+ENDIF
+
+IF SCREEN = 3        ; si estamos en INTERMISSION
+    IF F = 1            ; y en modo "enmarcado" entonces
+		INK 7                ; tinta White
+		PAPER 0              ; papel Black
+		PUT 8 136 0          ; coloca a "Kokoro"	
+		AT 10 12 MESSAGE 7   ; pinta el nivel
+		AT 10 18 DISPLAY P
+		SILENCE             ; apagar Player
+		SOUND 2             ; reproduce música "Intermission"
+		;SOUND 0             ; sonar solo una vez
+		LET F = 2            ; establece ya el modo "Insert coin"
+    ENDIF
+ENDIF
+
+
+
+EVENT INTROMENU
+
+; PANTALLA
+BORDER 0
+PAPER 0
+INK 7
+CLS
+
+IF F = 0    ; el juego se ejecuta por primera vez
+    AT 8 10
+    PRINT "1. KEYBOARD"
+    AT 10 10
+    PRINT "2. KEMPSTON"
+    AT 12 10
+    PRINT "3. SINCLAIR"
+    LET CONTROL = 99
+	;SOUND 2
+	;SOUND 0
+    WHILE CONTROL = 99	; mientras no cambie no salir del bucle.
+		IF KEY OPTION1
+			LET CONTROL = 0
+		ENDIF
+		IF KEY OPTION2
+            LET CONTROL = 1
+		ENDIF
+		IF KEY OPTION3
+			LET CONTROL = 2
+		ENDIF
+		;SOUND 96
+		;DELAY 2
+    ENDWHILE		
+    CLS
+ENDIF
+
+EVENT GAMEINIT
+
+; VARIABLES GLOBALES
+
+LET LIVES = 3
+LET N = 0    ; contador PILDORAS
+LET D = 0    ; contador PILDORAS DE PODER
+LET M = 0    ; Modo/cronómetro. "DISPERSION o DESPLIEGUE", "PERSECUCION", "ASUSTADO".
+LET Z = 0		; Ritmo
+LET P = 1		; PANTALLAS
+LET L = 1		; niveles de dificultad
+LET C = 1		; CONTADOR INTERMISIÓN
+LET H = 0        ; contador FRUTAS
+
+LET B = 0        ; cronómetro marcador de BONUS en pantalla
+LET J = 0        ; contador PACKS 200 BONUS 
+LET G = 0        ; contador fantasmas 
+
+LET K = 5    ; PACMAN DEATH 0,1,2,3,4 = MURIENDO, 5 = READY.
+LET Q = 0    ; TARJET X
+LET R = 0    ; TARJET Y
+LET T = 0    ; coordenada X de BLINKY
+LET U = 0    ; coordenada Y de BLINKY
+LET V = 0    ; coordenada X de PACMAN
+LET W = 0    ; coordenada Y de PACMAN
+LET I = 0    ; DIRECCION de PACMAN
+; MARCADORES
+
+AT 22 16
+DISPLAY LIVES
+AT 22 14
+AT 22 2
+SHOWSCORE
+AT 22 24
+SHOWHIGH
+
+EVENT RESTARTSCREEN
+
+LET A = 1	; Reinicia el orden de EVENT INITSPRITE de fantasmas.
+
+IF SCREEN = 1	    ; si entramos en la pantalla START
+    LET F = 1            ; pasa a modo "enmarcado"
+    LET S = 0            ; y restaura el cronómetro.
+ENDIF
+
+IF SCREEN = 0        ; si estamos en el LABERINTO
+    IF F = 0		; y si estamos en modo "Juego" entonces
+	LET F = 1		; pasa a modo "enmarcado Jugando"
+    ELSE		; en cambio en modo "Insert coin"
+	LET F = 3		; pasa a modo "enmarcado Insert coin"
+    ENDIF
+    LET N = 0		; restaura BOLAS
+    LET S = 0           ; restaura cronómetro
+    LET D = 0		; restaura PILDORAS
+    LET G = 0		; restaura FANTASMAS POR PANTALLA
+    LET H = 0		; restaura FRUTAS POR PANTALLA
+    LET J = 0		; restaura BONUS POR PANTALLA
+    ;LET LIVES = 3	; restaura VIDAS
+ENDIF
+
+IF SCREEN = 2    ; si entramos en la pantalla BONUS
+    LET F = 1        ; establecer modo "enmarcado"
+    LET S = 0        ; y restaurar cronómetro.
+ENDIF
+
+IF SCREEN = 3        ; si estamos entrando en "INTERMISSION" entonces
+	LET F = 1        ; establecer modo "enmarcado"
+	LET S = 0        ; restaurar cronómetro
+	LET M = 0        ; asegurar modo "dispersión"
+	LET N = 0        ; restaurar contador "puntos de luz"
+ENDIF
+
+
+EVENT FELLTOOFAR
+
+EVENT KILLPLAYER
+
+;USER 0
+		
+EVENT LOSTGAME
+
+;USER 0
+SILENCE
+
+EVENT COMPLETEDGAME
+
+; SI NOS QUEDAMOS SIN PILDORAS, VICTORIA! CONECTADO DESDE EL COMANDO ENDGAME
+
+;USER 0
+SILENCE
+
+EVENT NEWHIGHSCORE
+
+;USER 0
+
+EVENT COLLECTBLOCK
+
+; COME
+
+IF SCREEN = 0	; en el laberinto
+    IF F = 0        ; si estamos jugando
+    	ADD 1 TO N	; suma al contador de puntos de luz
+        SCORE 5		; sumar 5 al marcador
+    ENDIF
+ENDIF
+
+IF F = 0        ; solo si estamos jugando
+	;BEEP 16        ; FX Sonido "paku paku"
+	SOUND 101
+ENDIF
+
+AT 22 2
+SHOWSCORE

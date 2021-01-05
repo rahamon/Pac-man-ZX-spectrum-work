@@ -1,0 +1,47 @@
+
+EVENT SPRITETYPE5
+
+; FRUTAS
+; deben permanecer 10 segundos
+
+SPRITEINK SETTINGA
+
+IF S = 10              ; agotamos 10 segundos en pantalla
+    REMOVE             ; desaparece
+    GETRANDOM 5
+    LET S = RND        ; restaurar cronómetro FRUTAS
+ENDIF
+
+IF COLLISION PLAYER    ; somos capturados
+    GETRANDOM 5
+    LET S = RND        ; restaurar cronómetro FRUTAS
+    REPEAT SETTINGB
+	READ A             ; lee multiplicador en posición SETTINGB de la serie
+    ENDREPEAT
+    REPEAT A
+        IF F = 0           ; solo si estamos "Jugando" entonces
+            SCORE 200	       ; suma 200 puntos al SCORE
+        ENDIF
+	ADD 1 TO J         ; cuenta BONUS FRUTAS
+    ENDREPEAT
+    READ A            ; lee marcador BONUS
+	LET B = 4 
+	WHILE B < 8
+        GET B         ; borra marcadores BONUS
+		ADD 1 TO B
+	ENDWHILE
+    PUT X Y A         ; pinta marcador en pantalla
+    LET B = 1         ; inicia cronómetro marcador BONUS
+    AT 22 2
+    SHOWSCORE         ; actualiza marcador SCORE
+    IF F = 0           ; solo si estamos "Jugando" entonces
+        ;BEEP 30            ; sonido "Eat Fruit"
+		SOUND 103
+    ENDIF
+    RESTORE           ; restaura serie DATA
+    REMOVE            ; desaparece
+    ADD 1 TO H        ; suma 1 al contador de FRUTAS
+ENDIF
+
+; diccionario: multiplicador, marcador Bonus
+DATA 1 4 2 5 2 5 4 6 4 6 8 7

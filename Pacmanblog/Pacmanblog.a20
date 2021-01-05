@@ -1,0 +1,19 @@
+
+EVENT COLLECTBLOCK
+
+; COME
+
+IF SCREEN = 0	; en el laberinto
+    IF F = 0        ; si estamos jugando
+    	ADD 1 TO N	; suma al contador de puntos de luz
+        SCORE 5		; sumar 5 al marcador
+    ENDIF
+ENDIF
+
+IF F = 0        ; solo si estamos jugando
+	;BEEP 16        ; FX Sonido "paku paku"
+	SOUND 101
+ENDIF
+
+AT 22 2
+SHOWSCORE

@@ -1,0 +1,19 @@
+
+EVENT INITSPRITE
+
+; aparecer fantasmal
+
+IF TYPE = 4                   ; si el Sprite es Perseguidor
+    REPEAT A                  ; repite para A.
+        READ SETTINGA         ; lee el color y resérvalo en SETTINGA
+		LET SETTINGB = D      ; memoriza la "última bola de poder"
+    ENDREPEAT
+    ADD 1 TO A                ; pasamos al siguiente fantasma
+    IF A = 5
+        LET A = 1             ; si aparecieron 4, reinicia A. 
+    ENDIF
+ENDIF
+
+LET FRAME = 0                 ; asegura fotograma = 0.
+
+DATA 2, 3, 5, 6

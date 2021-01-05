@@ -1,0 +1,42 @@
+
+EVENT SPRITETYPE6
+
+; Big-man
+
+SPRITEINK 14
+
+; comprobaciones
+
+IF M < 200        ; Big-man pierde el "poder"
+    REMOVE            ; se borra a sí mismo.
+ENDIF
+
+; sección de velocidad
+
+IF L = 1
+    ; VELOCIDAD 4+ 110110
+    IF Z = 2
+	EXIT
+    ENDIF
+    IF Z = 5
+    	EXIT
+    ENDIF
+ENDIF
+IF L = 2
+    ; VELOCIDAD 5+ 111110
+    IF Z = 5
+        EXIT
+    ENDIF
+ENDIF
+
+; sección de movimiento
+
+IF DIRECTION = RIGHT
+    IF X >= RIGHTEDGE
+        LET X = LEFTEDGE
+        EXIT
+    ELSE
+	ANIMATE SLOW
+	SPRITERIGHT
+    ENDIF
+ENDIF

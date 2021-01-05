@@ -1,0 +1,129 @@
+EVENT SPRITETYPE1
+
+; Objetivo Regresar a casa, ojos incorpóreos
+
+SPRITEINK SETTINGA          ; mi color es mi identidad
+
+IF SCREEN > 0	; si estamos en "START" o "INTERMISSION" entonces
+    REMOVE        ; no aparecen los ojos incorpóreos
+ENDIF
+
+IF X = 104
+    IF Y = 72            ; en "posición inicial"
+	LET TYPE = 4 	    ; REAPARECE en modo perseguir/dispersar
+	LET SETTINGB = D    ; memoriza "última bola energizante"
+	LET IMAGE = 4       ; cambia de apariencia
+	LET FRAME = 0       ; asegura fotograma 0
+        IF F = 0            ; solo si estamos "Jugando" entonces
+	    ;SOUND 107            ; sonido "Sirena fantasma 128k"
+        ENDIF
+    ENDIF
+ENDIF
+
+IF LADDERBELOW        ; estoy "a las puertas de casa"
+    SPRITEDOWN            ; MUEVE abajo
+    EXIT                  ; salir del script
+ENDIF
+
+; movimiento
+
+IF DIRECTION = UP
+    ; girar contra reloj
+    IF CANGOUP
+        SPRITEUP
+    ELSE
+        LET DIRECTION = LEFT
+    ENDIF
+
+    ; movimiento hacia objetivo
+    IF X > 112
+        IF CANGOLEFT
+            LET DIRECTION = LEFT
+            ANIMATE
+        ENDIF
+    ELSE
+        IF CANGORIGHT
+            LET DIRECTION = RIGHT
+            ANIMATE
+        ENDIF
+    ENDIF
+ENDIF
+
+IF DIRECTION = DOWN
+    IF LADDERBELOW        ; estoy "a las puertas de casa"
+        SPRITEDOWN            ; MUEVE abajo
+        EXIT                  ; salir del script
+    ENDIF
+    ; girar sentido reloj
+    IF CANGODOWN
+        SPRITEDOWN
+    ELSE
+        LET DIRECTION = RIGHT
+    ENDIF
+    ; movimiento hacia objetivo
+    IF X > 112
+        IF CANGOLEFT
+            LET DIRECTION = LEFT
+            ANIMATE
+        ENDIF
+    ELSE
+        IF CANGORIGHT
+            LET DIRECTION = RIGHT
+            ANIMATE
+        ENDIF
+    ENDIF
+ENDIF
+
+IF DIRECTION = LEFT
+    ; atraviesa túnel, poco probable.
+    IF X <= LEFTEDGE
+        LET X = RIGHTEDGE
+        EXIT
+    ELSE
+        ; giro sentido reloj
+        IF CANGOLEFT
+            SPRITELEFT
+        ELSE
+            LET DIRECTION = DOWN
+        ENDIF
+    ENDIF
+    ; movimiento hacia objetivo
+    IF Y > 64
+        IF CANGOUP
+            LET DIRECTION = UP
+            ANIMATE
+        ENDIF
+    ELSE
+        IF CANGODOWN
+            LET DIRECTION = DOWN
+            ANIMATE
+        ENDIF
+    ENDIF
+ENDIF
+
+IF DIRECTION = RIGHT
+    ; chequear túnel
+    IF X >= RIGHTEDGE
+        LET X = LEFTEDGE
+        EXIT
+    ELSE
+        ; giro contra reloj
+        IF CANGORIGHT
+            SPRITERIGHT
+        ELSE
+            LET DIRECTION = DOWN
+        ENDIF
+    ENDIF
+    ; movimiento hacia objetivo
+    IF Y > 64
+        IF CANGOUP
+            LET DIRECTION = UP
+            ANIMATE
+        ENDIF
+    ELSE
+        IF CANGODOWN
+            LET DIRECTION = DOWN
+            ANIMATE
+        ENDIF
+    ENDIF
+ENDIF

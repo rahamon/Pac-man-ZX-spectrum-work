@@ -1,0 +1,256 @@
+
+EVENT PLAYER
+; Pacman
+
+SPRITEINK  14
+
+; velocidades
+IF L = 1
+    ; VELOCIDAD 4+ 110110
+    IF Z = 2
+	EXIT
+    ENDIF
+    IF Z = 5
+    	EXIT
+    ENDIF
+ENDIF
+IF L = 2
+    ; VELOCIDAD 5+ 111110
+    IF Z = 5
+        EXIT
+    ENDIF
+ENDIF
+
+; Control
+
+IF SCREEN = 0    ; si estamos en el Laberinto
+    IF F = 0        ; y estamos en modo "Jugando" entonces controlamos a Pac-man
+        IF KEY UP IF CANGOUP DIRECTION = UP ENDIF ENDIF
+	IF KEY DOWN IF CANGODOWN DIRECTION = DOWN ENDIF ENDIF
+	IF KEY LEFT IF CANGOLEFT DIRECTION = LEFT ENDIF ENDIF
+	IF KEY RIGHT IF CANGORIGHT DIRECTION = RIGHT ENDIF ENDIF
+    ELSE            ; en modos "Insert Coin" y "enmarcado" no controlamos a Pac-man
+	IF S > 10         ; si agotamos 10 segundos en estos modos entonces
+	    ENDGAME            ; salir a HIGH SCORE
+	ENDIF
+    ENDIF
+ENDIF
+
+; movimiento
+
+GETRANDOM 4
+LET A = RND        ; guardar en "A" dirección pseudoaleatoria
+
+IF DIRECTION = UP
+    IF CANGOUP              ; si no hay obstáculo a su paso
+        SPRITEUP                ; Pac-man se mueve
+	LET IMAGE = 2           ; mira en esa dirección
+	ANIMATE                 ; mueve la boca
+    ELSE                    ; en caso de encontrar obstáculo
+	IF F = 2                ; y estar en modo "Insert Coin"
+	    LET DIRECTION = A        ; establecer dirección "A"
+	ENDIF
+    ENDIF
+ENDIF
+
+IF DIRECTION = DOWN
+    IF CANGODOWN            ; si no hay obstáculo a su paso
+	SPRITEDOWN              ; Pac-man se mueve
+	LET IMAGE = 3           ; mira en esa dirección
+	ANIMATE                 ; mueve la boca
+    ELSE                    ; en caso de encontrar obstáculo
+	IF F = 2                ; y estar en modo "Insert Coin"
+            LET DIRECTION = A        ; establecer dirección "A"
+	ENDIF
+    ENDIF
+ENDIF
+
+IF DIRECTION = RIGHT
+    IF X >= RIGHTEDGE
+        LET X = LEFTEDGE
+        EXIT
+    ELSE
+        IF CANGORIGHT
+            SPRITERIGHT
+	    IF SCREEN > 0      ; si estamos en "START" o "INTERMISSION"
+		IF M >= 200        ; y si atrapamos a "Kokoro"
+	            LET IMAGE = 14	; transforma pieza inferior izquierda de Big-man.
+		ELSE
+                    LET IMAGE = 0
+                ENDIF
+	    ELSE
+		LET IMAGE = 0
+	    ENDIF
+            ANIMATE
+	ELSE
+	    IF F = 2
+		LET DIRECTION = A
+	    ENDIF
+        ENDIF
+    ENDIF
+ENDIF
+
+IF DIRECTION = LEFT
+    IF X <= LEFTEDGE
+        LET X = RIGHTEDGE
+        EXIT
+    ELSE
+        IF CANGOLEFT
+            SPRITELEFT
+	    IF SCREEN > 0      ; si estamos en "START" o "INTERMISSION"
+		IF M < 200        ; y si no tenemos "el poder".
+	            LET IMAGE = 1    ; restauramos la forma Pac-man
+		ENDIF
+	    ELSE
+		LET IMAGE = 1
+	    ENDIF
+            ANIMATE
+	ELSE
+	    IF F = 2
+		LET DIRECTION = A
+	    ENDIF
+        ENDIF
+    ENDIF
+ENDIF
+
+; comprobaciones
+
+IF SCREEN = 3    ; si estamos en pantalla INTERMISSION
+    IF S > 7          ; y agotamos 7 segundos
+        SILENCE           ; parar el reproductor con tema INTERMISION
+		LET X = 112       ; posición GET READY
+		LET Y = 96
+		LET FRAME = 0
+		LET IMAGE = 0     ; mirar a derecha
+		LET DIRECTION = RIGHT
+		LET SCREEN = 0    ; saltar a la pantalla LABERINTO
+        LET F = 0         ; restauramos modo "Juego"
+	EXIT              ; salir del script
+    ENDIF
+ENDIF
+
+IF SCREEN = 1            ; si estamos en la pantalla START
+    IF KEY FIRE1	    ; si pulsamos FIRE1 entonces
+		LET F = 0	    ; pasa a modo "Jugando"
+		LET X = 112	    ; define posición y nuevas propiedades
+		LET Y = 96
+		LET FRAME = 0
+		LET DIRECTION = RIGHT
+		LET IMAGE = 0
+		LET SCREEN = 0      ; nuevo decorado = "laberinto"
+		EXIT                ; salir del script
+    ENDIF
+    IF S > 10             ; si agotamos 10 segundos entonces
+        LET F = 2            ; pasamos a modo "Insert coin"
+        LET X = 112	     ; nueva posición GET READY
+        LET Y = 96
+        LET FRAME = 0        ; nuevas propiedades
+        LET DIRECTION = RIGHT
+        LET SCREEN = 0       ; nuevo decorado = "laberinto"
+        LET IMAGE = 0
+        EXIT                 ; salir del script
+    ENDIF
+ENDIF
+
+IF M < 100							; RESET SERIE BONUS FANTASMAS
+	RESTORE
+ENDIF
+
+IF N = 193	    ; si terminamos el tablero entonces
+    ADD 1 TO P        ; sumamos una pantalla terminada más
+    IF P = 8
+	LET L = 2        ; subimos de nivel dificultad del juego
+	ADD 1 TO LIVES   ; te damos vida extra!
+	; BEEP           ; efecto sonido "VIDA EXTRA"
+    ELSE
+	IF P = 16
+            LET L = 3        ; subimos al máximo nivel
+	    ADD 1 TO LIVES   ; te damos última vida extra
+	    ; BEEP           ; efecto sonido "VIDA EXTRA"
+	ENDIF
+    ENDIF
+    ADD 1 TO C        ; suma contador de CICLOS DE INTERMISION
+    REMOVE	      ; nos BORRAMOS
+    LET SCREEN = 2    ; salto a PANTALLA TRANSITO/PUNTUACION
+    LET S = 0         ; restaurar cronómetro
+    EXIT
+ENDIF
+
+; detección
+
+GETBLOCKS		; COME COCOS
+
+DETECTOBJ		; Para las PILDORAS
+
+IF OBJ < 4       ; si es una PILDORA DE PODER
+    ADD 1 TO D        ; suma PILDORAS PODER
+    IF F = 0          ; solo si estamos "jugando" entonces
+		SCORE 50         ; suma 50 puntos
+		;BEEP 60          ; sonido "Gulp"
+		SOUND 102
+    ENDIF
+    AT 22 2
+    SHOWSCORE
+    LET M = 200
+    GET OBJ           ; COME
+    IF SCREEN > 0     ; si estamos en "START" o "INTERMISSION"
+		LET DIRECTION = RIGHT   ; gira para perseguir a los fantasmas
+		LET IMAGE = 14          ; transformación en Big-man
+        LET FRAME = 0
+		SPAWN 6 17		; instancia pieza "Big-man"
+		SPAWNED
+			ADD 15 TO X	            ; posición abajo derecha
+			LET FRAME = 0           ; asegura fotograma 0
+			LET DIRECTION = RIGHT
+		ENDSPRITE
+        SPAWN 6 15		; instancia pieza "Big-man"
+		SPAWNED
+			SUBTRACT 16 TO Y        ; posición arriba
+			SUBTRACT 1 TO X
+			LET FRAME = 0
+			LET DIRECTION = RIGHT
+		ENDSPRITE
+		SPAWN 6 16		; instancia pieza "Big-man"
+		SPAWNED
+			ADD 15 TO X	            ; posición arriba derecha
+			SUBTRACT 16 TO Y
+			LET FRAME = 0
+			LET DIRECTION = RIGHT
+		ENDSPRITE
+    ENDIF
+ENDIF
+
+IF COLLISION 3    ; come fantasmas "asustados"
+    READ A
+    REPEAT A
+        ADD 1 TO J        ; suma un PACK BONUS al contador
+		IF F = 0              ; solo si estamos "jugando" entonces
+			SCORE 200            ; suma 200 puntos
+		ENDIF
+    ENDREPEAT
+    READ A
+    PUT X Y A
+    LET B = 1        ; inicia CONTADOR ciclo imagen BONUS
+    IF A = 7
+		RESTORE
+    ENDIF
+    AT 22 2
+    SHOWSCORE
+    ADD 1 TO G	     ; aumenta TOTAL FANTASMAS POR PANTALLA
+    IF F = 0         ; solo si estamos "jugando" entonces
+        ;BEEP 250          ; sonido "eat ghost"
+		SOUND 104
+    ENDIF
+    OTHER	
+		LET TYPE = 1      ; transforma a modo "ojos incorpóreos"
+		LET IMAGE = 6
+		LET FRAME = 0
+    ENDSPRITE
+ENDIF
+
+LET V = X                ; Revela tu posición X
+LET W = Y                ; Revela tu posicion Y
+LET I = DIRECTION        ; Revela tu direccion
+
+; multiplicador, objeto
+DATA 1 4 2 5 4 6 8 7          ; serie bonus por fantasma

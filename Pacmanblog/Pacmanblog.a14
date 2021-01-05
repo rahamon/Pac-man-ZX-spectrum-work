@@ -1,0 +1,37 @@
+
+EVENT RESTARTSCREEN
+
+LET A = 1	; Reinicia el orden de EVENT INITSPRITE de fantasmas.
+
+IF SCREEN = 1	    ; si entramos en la pantalla START
+    LET F = 1            ; pasa a modo "enmarcado"
+    LET S = 0            ; y restaura el cronómetro.
+ENDIF
+
+IF SCREEN = 0        ; si estamos en el LABERINTO
+    IF F = 0		; y si estamos en modo "Juego" entonces
+	LET F = 1		; pasa a modo "enmarcado Jugando"
+    ELSE		; en cambio en modo "Insert coin"
+	LET F = 3		; pasa a modo "enmarcado Insert coin"
+    ENDIF
+    LET N = 0		; restaura BOLAS
+    LET S = 0           ; restaura cronómetro
+    LET D = 0		; restaura PILDORAS
+    LET G = 0		; restaura FANTASMAS POR PANTALLA
+    LET H = 0		; restaura FRUTAS POR PANTALLA
+    LET J = 0		; restaura BONUS POR PANTALLA
+    ;LET LIVES = 3	; restaura VIDAS
+ENDIF
+
+IF SCREEN = 2    ; si entramos en la pantalla BONUS
+    LET F = 1        ; establecer modo "enmarcado"
+    LET S = 0        ; y restaurar cronómetro.
+ENDIF
+
+IF SCREEN = 3        ; si estamos entrando en "INTERMISSION" entonces
+	LET F = 1        ; establecer modo "enmarcado"
+	LET S = 0        ; restaurar cronómetro
+	LET M = 0        ; asegurar modo "dispersión"
+	LET N = 0        ; restaurar contador "puntos de luz"
+ENDIF
+

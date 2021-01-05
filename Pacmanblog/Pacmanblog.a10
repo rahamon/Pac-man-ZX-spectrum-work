@@ -1,0 +1,84 @@
+EVENT MAINLOOP1
+
+SOUND 96
+
+; CRONOMETRO
+LET A = CLOCK
+SUBTRACT O FROM A
+IF A >= 50
+    ADD 50 TO O    ; variable O (letra o) es última lectura de CLOCK.
+    ADD 1 TO M     ; cronómetro MODOS
+    ADD 1 TO B     ; cronómetro marcador BONUS
+    ADD 1 TO S     ; cronómetro FRUTAS
+ENDIF
+
+IF B > 0           ; hay marcador BONUS en el tablero
+    IF B < 3
+        ; agota 3 segundos
+    ELSE
+        LET B = 4 
+	WHILE B < 8
+            GET B         ; borra marcadores BONUS
+	    ADD 1 TO B
+	ENDWHILE
+	LET B = 0         ; restaura cronómetro
+    ENDIF
+ENDIF
+
+; frutas
+IF S = 15        ; primera aparición de BONUS FRUTAS
+    IF F = 0        ; solo si estamos "Jugando" entonces
+        LET S = 0    	; restauramos cronómetro
+        READ A		; lee FRUTA
+        SPAWN 5 A       ; instancia una FRUTA
+        SPAWNED
+            LET X = 112
+            LET Y = 96           ; posición GET READY
+            SUBTRACT 7 TO A
+	    MULTIPLY A BY 2
+	    SUBTRACT 1 TO A      ; posición en la serie = (A-7)*2-1
+	    LET SETTINGB = A     ; guardar índice en SETTINGB	
+	    READ SETTINGA	 ; leer color y guardar en SETTINGA 
+        ENDSPRITE
+    ENDIF
+ENDIF
+
+; Gestor de modos
+IF M < 100            ; DISPERSION
+    IF N > 128           ; finalizando el laberinto (N = BOLAS)
+        IF M > 1            ; agotamos periodo de solo un segundo
+            LET M = 100        ; y cambio a persecución.
+	ENDIF
+    ELSE                 ; al comienzo del laberinto
+        IF M > 5            ; agotamos periodo de 5 segundos
+            LET M = 100        ; y después persigue.
+        ENDIF
+    ENDIF
+ELSE
+    IF M < 200	        ; PERSECUCION
+        IF M > 120          ; agotamos periodo de 20 segundos
+            LET M = 0          ; y otra vez dispersión.
+	ENDIF
+    ELSE    		; Pac-man "tiene el poder" ASUSTADO
+        LET A = 210         ; periodo inicial de 10 segundos.
+	IF F = 0            ; solo si estamos jugando entonces
+            SUBTRACT P TO A     ; resta un segundo por nivel
+	ENDIF
+        IF P >= 20          ; a partir del nivel 20
+	    LET M = 0          ; ya no tienen miedo
+        ELSE
+	    IF M > A        ; agotamos periodo
+                LET M = 0      ; volvemos a dispersión.
+            ENDIF
+        ENDIF
+    ENDIF
+ENDIF
+
+; Contador de frames del juego
+ADD 1 TO Z
+IF Z > 5
+	LET Z = 0	; pulso (tic) 0, 1, 2, 3, 4, 5
+ENDIF
+
+; datos: fruta, color
+DATA 8 2 9 2 10 3 11 6 12 2 13 7

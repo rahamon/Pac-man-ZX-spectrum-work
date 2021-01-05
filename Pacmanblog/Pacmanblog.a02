@@ -1,0 +1,48 @@
+EVENT SPRITETYPE2
+
+; Muerte de Pacman: entre frames reproduce un segmento de Sonido
+; Para dar la impresión de continuidad
+
+IF K < 5
+    LET IMAGE = 7
+    FRAME K
+    ANIMATE SLOW
+    ADD 1 TO K
+    IF K = 1
+		IF F = 0
+			;BEEP 120
+			SOUND 105	; fx "Death 1"
+			;DELAY 25    ; pausa
+		ENDIF
+	ENDIF
+    IF K = 2
+		IF F = 0
+			;BEEP 80
+			SOUND 106	; fx "Death 2"
+			;DELAY 25    ; pausa
+		ENDIF
+    ENDIF
+    IF K =4
+		IF F = 0
+			;BEEP 60
+			SOUND 107	; fx "Death 3"
+			;DELAY 25    ; pausa
+		ENDIF
+    ENDIF
+ELSE                ; K = 5 
+    IF LIVES = 0        ; no quedan vidas 
+        AT 9 13
+        MESSAGE 0                ; GAME OVER
+        DELAY 34
+        REMOVE
+        LET SCREEN = 2           ; salta a pantalla "BONUS"
+        EXIT        
+    ELSE	        ; reaparezco, aún me quedan vidas.
+        LET TYPE = 0             ; transformar en Pac-man
+        LET IMAGE = 1            ; con su apariencia.
+        LET X = 112              ; en posición. GET READY.
+        LET Y = 96
+        LET FRAME = 0
+        LET DIRECTION = RIGHT    ; mirando a derecha.
+    ENDIF
+ENDIF
