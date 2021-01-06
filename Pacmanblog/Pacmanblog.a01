@@ -15,7 +15,7 @@ IF X = 104
 	LET IMAGE = 4       ; cambia de apariencia
 	LET FRAME = 0       ; asegura fotograma 0
         IF F = 0            ; solo si estamos "Jugando" entonces
-	    ;SOUND 107            ; sonido "Sirena fantasma 128k"
+	    ;SOUND 106            ; sonido "Sirena fantasma 128k"
         ENDIF
     ENDIF
 ENDIF
